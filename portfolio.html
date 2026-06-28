@@ -158,8 +158,8 @@
         <code>solveAll(hints, size, 6)
 <span class="c">// 1=단일·2~5=연작·6+=거부 (size 5~10)
 // 출제검증(PVS) p99: 5×5&lt;5ms·10×10&lt;100ms · CI 회귀 게이트</span></code></div>
-      <div class="card"><h3>토러스 무한 월드 + Phaser</h3>
-        <p>좌표가 wrap되는 도넛 평면. 거리·충돌을 항상 짧은 경로로 계산. 세계=Phaser, UI=React.</p>
+      <div class="card"><h3>토러스 무한 월드 — 엔진 없이 직접 렌더</h3>
+        <p>좌표가 wrap되는 도넛 평면. 거리·충돌을 항상 짧은 경로로 계산. 세계=SVG/DOM 직접 렌더, UI=React.</p>
         <code>torusDelta(95,5,100)===10
 <span class="c">// 직선 -90 대신 wrap +10</span></code></div>
       <div class="card"><h3>협력 경제 — 장부·동시성</h3>
@@ -178,7 +178,7 @@ WHERE bal &gt;= :n <span class="c">-- 0행이면 롤백</span></code></div>
       <span class="m">테스트 133</span><span class="m">커밋 842</span><span class="m">5패키지 모노레포</span>
       <span class="m" style="background:#e3f3ea;color:#2f7d4f">Live (2026.06 기준)</span>
     </div>
-    <div class="stack-line">React 18 · Phaser 4 · Zustand · TanStack Query · Fastify · Prisma · SQLite · Zod · Clerk · Fly.io · Cloudflare · GitHub Actions</div>
+    <div class="stack-line">React 18 · SVG/Canvas · Zustand · TanStack Query · Fastify · Prisma · SQLite · Zod · Clerk · Fly.io · Cloudflare · GitHub Actions</div>
   </div>
 </section>
 

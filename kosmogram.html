@@ -228,8 +228,8 @@
       <article class="card">
         <div class="tile-mark" style="background:var(--c-green)"></div>
         <div>
-          <h3>토러스 무한 월드 + Phaser 렌더</h3>
-          <p>세계가 끝없이 이어지는 도넛(토러스) 평면이라, 거리·충돌을 항상 "짧은 경로"로 계산해야 한다. 순수 좌표 유틸을 코어에 두고 백엔드 충돌 검사와 프론트 렌더가 공유한다. 세계는 Phaser, UI는 React가 맡되 둘 사이를 인터페이스 하나로 격리했다.</p>
+          <h3>토러스 무한 월드 — 엔진 없이 직접 렌더</h3>
+          <p>세계가 끝없이 이어지는 도넛(토러스) 평면이라, 거리·충돌을 항상 "짧은 경로"로 계산해야 한다. 순수 좌표 유틸을 코어에 두고 백엔드 충돌 검사와 프론트 렌더가 공유한다. 세계는 게임 엔진 없이 React+SVG/DOM로 직접 렌더하고, UI도 React가 맡되 월드 렌더와 React 상태 사이를 인터페이스 하나로 격리했다.</p>
           <code class="snip">torusDelta(95, 5, 100) === <span class="kv">10</span>
 <span style="color:var(--faint)">// 직선 -90 대신 wrap 통과 +10 (짧은 경로)</span></code>
         </div>
@@ -239,7 +239,7 @@
         <div class="tile-mark" style="background:var(--c-purple)"></div>
         <div>
           <h3>군집 인식 연결망 — 도시가 스스로 뭉치다</h3>
-          <p>영지들이 자연스러운 군집(도시)을 이루도록, 토러스-MST(Prim) 백본을 깔고 가까운 간선(rest ≤ dLocal)만 남겨 군집을 만든다. 군집과 군집 사이는 트리라서 다리가 정확히 하나, 군집 안은 Gabriel 이웃으로 촘촘하게 — 백본이 한 트리라 어느 배율에서 봐도 같은 구조가 유지된다. 코어 순수 함수를 Phaser 월드·미니맵이 그대로 호출한다.</p>
+          <p>영지들이 자연스러운 군집(도시)을 이루도록, 토러스-MST(Prim) 백본을 깔고 가까운 간선(rest ≤ dLocal)만 남겨 군집을 만든다. 군집과 군집 사이는 트리라서 다리가 정확히 하나, 군집 안은 Gabriel 이웃으로 촘촘하게 — 백본이 한 트리라 어느 배율에서 봐도 같은 구조가 유지된다. 코어 순수 함수를 월드 렌더(SVG)·미니맵(Canvas)이 그대로 호출한다.</p>
           <code class="snip">torusMst(estates) → 군집 = rest ≤ dLocal 연결요소
 <span style="color:var(--faint)">// intra: Gabriel(같은 군집) ∪ bridges: 군집쌍당 1
 // gameWorld.ts 라이브 렌더에서 실제 호출</span></code>
@@ -268,7 +268,7 @@ WHERE balance <span class="kv">&gt;= :amt</span>  <span style="color:var(--faint
     <div class="stack">
       <div class="grp" style="--bullet:var(--c-blue)">
         <h4>Frontend</h4>
-        <ul><li>React 18</li><li>Phaser 4 · 세계 렌더</li><li>Zustand</li><li>TanStack Query</li><li>TypeScript · Vite</li></ul>
+        <ul><li>React 18</li><li>SVG·Canvas · 세계 렌더(엔진 미사용)</li><li>Zustand</li><li>TanStack Query</li><li>TypeScript · Vite</li></ul>
       </div>
       <div class="grp" style="--bullet:var(--c-green)">
         <h4>Backend</h4>
