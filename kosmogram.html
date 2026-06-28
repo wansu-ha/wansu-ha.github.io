@@ -239,7 +239,7 @@
         <div class="tile-mark" style="background:var(--c-purple)"></div>
         <div>
           <h3>군집 인식 연결망 — 도시가 스스로 뭉치다</h3>
-          <p>영지들이 자연스러운 군집(도시)을 이루도록, 토러스-MST(Prim) 백본을 깔고 가까운 간선(rest ≤ dLocal)만 남겨 군집을 만든다. 군집과 군집 사이는 트리라서 다리가 정확히 하나, 군집 안은 Gabriel 이웃으로 촘촘하게 — 백본이 한 트리라 어느 배율에서 봐도 결이 산다. 코어 순수 함수를 Phaser 월드·미니맵이 그대로 호출한다.</p>
+          <p>영지들이 자연스러운 군집(도시)을 이루도록, 토러스-MST(Prim) 백본을 깔고 가까운 간선(rest ≤ dLocal)만 남겨 군집을 만든다. 군집과 군집 사이는 트리라서 다리가 정확히 하나, 군집 안은 Gabriel 이웃으로 촘촘하게 — 백본이 한 트리라 어느 배율에서 봐도 같은 구조가 유지된다. 코어 순수 함수를 Phaser 월드·미니맵이 그대로 호출한다.</p>
           <code class="snip">torusMst(estates) → 군집 = rest ≤ dLocal 연결요소
 <span style="color:var(--faint)">// intra: Gabriel(같은 군집) ∪ bridges: 군집쌍당 1
 // gameWorld.ts 라이브 렌더에서 실제 호출</span></code>
