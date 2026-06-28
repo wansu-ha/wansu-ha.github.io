@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>하완수 — 풀스택 개발자</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css" />
+<style>
+  :root{
+    --bg:#ffffff; --bg-2:#f7f8fa;
+    --ink:#1a1d23; --text:#3c424b; --muted:#6b7280; --faint:#9aa1ab;
+    --line:#e6e9ee; --accent:#1f3a5f; --accent-soft:#33598a; --accent-bg:#eef2f8;
+    --sans:"Pretendard","Pretendard Variable",system-ui,sans-serif;
+    --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;width:100%}
+
+  .hero{padding-top:72px;padding-bottom:40px}
+  .accent-line{width:46px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:26px}
+  .name{font-size:clamp(2.2rem,6vw,3.1rem);font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.05}
+  .name .en{font-weight:500;font-size:.4em;color:var(--faint);letter-spacing:.12em;margin-left:12px}
+  .role{font-size:1.05rem;color:var(--accent);font-weight:600;margin-top:12px}
+  .tag{color:var(--muted);margin-top:14px;max-width:560px}
+  .contact{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:20px;display:flex;flex-wrap:wrap;gap:6px 18px}
+  .contact b{color:var(--text);font-weight:500}
+
+  .cards{display:grid;gap:14px;padding-bottom:60px}
+  .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;
+    border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;
+    padding:22px 24px;background:#fff;transition:.18s}
+  .nav:hover{background:var(--accent-bg);transform:translateX(3px)}
+  .nav .l{display:flex;flex-direction:column;gap:3px}
+  .nav .l .t{font-size:1.15rem;font-weight:700;color:var(--ink)}
+  .nav .l .d{font-size:.9rem;color:var(--muted)}
+  .nav .arr{font-size:1.3rem;color:var(--accent);flex:none}
+  .nav .tag2{font-family:var(--mono);font-size:.64rem;color:var(--accent);background:var(--accent-bg);
+    border-radius:100px;padding:3px 9px;margin-left:8px;vertical-align:middle}
+
+  footer{margin-top:auto;padding:28px 0;border-top:1px solid var(--line);
+    text-align:center;color:var(--faint);font-family:var(--mono);font-size:.74rem}
+  @media(max-width:560px){.hero{padding-top:52px;padding-bottom:32px}}
+</style>
+</head>
+<body>
+  <div class="wrap hero">
+    <div class="accent-line"></div>
+    <div class="name">하완수 <span class="en">HA WANSU</span></div>
+    <div class="role">풀스택 개발자 · Full-Stack Developer</div>
+    <p class="tag">전국 17개 병원이 쓰는 의료 EMR을 5년간 백엔드·시스템 통합으로 받쳐 왔고, 라이브 웹게임을 혼자 출시했다. 컴퓨터그래픽스·VR 석사.</p>
+    <div class="contact">
+      <span><b>hwas2620@gmail.com</b></span>
+      <span>서울 강북구</span>
+    </div>
+  </div>
+
+  <nav class="wrap cards">
+    <a class="nav" href="./resume.html">
+      <span class="l"><span class="t">이력서</span><span class="d">경력 · 기술 스택 · 학력 요약</span></span>
+      <span class="arr">→</span>
+    </a>
+    <a class="nav" href="./resume-game.html">
+      <span class="l"><span class="t">이력서 <span class="tag2">게임 직무용</span></span><span class="d">그래픽스·게임 수학 중심으로 재구성</span></span>
+      <span class="arr">→</span>
+    </a>
+    <a class="nav" href="./portfolio.html">
+      <span class="l"><span class="t">포트폴리오</span><span class="d">Kosmogram(개인작) · 이지케어텍 · 앱테스트에이아이 시스템 개념도</span></span>
+      <span class="arr">→</span>
+    </a>
+  </nav>
+
+  <footer><div class="wrap">© 2026 하완수 · Full-Stack Developer</div></footer>
+</body>
+</html>

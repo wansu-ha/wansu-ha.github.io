@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>이지케어텍 — 시스템 개념도 · 하완수</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.min.css" />
+<style>
+  :root{
+    --bg:#ffffff; --bg-2:#f7f8fa; --card:#ffffff;
+    --ink:#1a1d23; --text:#3c424b; --muted:#6b7280; --faint:#9aa1ab;
+    --line:#e6e9ee; --line-2:#eef1f5;
+    --accent:#1f3a5f; --accent-soft:#33598a; --accent-bg:#eef2f8;
+    --maxw:920px;
+    --sans:"Pretendard","Pretendard Variable",system-ui,sans-serif;
+    --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-soft);text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+  header.top{background:var(--bg-2);border-bottom:1px solid var(--line);padding:48px 0 36px}
+  .back{font-family:var(--mono);font-size:.76rem;color:var(--accent);display:inline-block;margin-bottom:18px}
+  .accent-line{width:46px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:20px}
+  h1{font-size:clamp(1.7rem,4.5vw,2.3rem);font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .sub{color:var(--muted);margin-top:12px;max-width:680px}
+  .disc{font-family:var(--mono);font-size:.72rem;color:var(--faint);margin-top:14px}
+  .legend{font-family:var(--mono);font-size:.74rem;color:var(--accent);margin-top:10px}
+
+  section.block{padding:46px 0;border-bottom:1px solid var(--line)}
+  h2.sec{font-size:1.3rem;color:var(--ink);font-weight:700}
+  .desc{color:var(--muted);margin-top:6px;font-size:.95rem}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:24px 0 22px}
+  .node{border:1px solid var(--line);border-radius:9px;padding:13px 15px;background:#fff;text-align:center;flex:0 0 auto;min-width:104px}
+  .node.key{border-color:var(--accent);border-width:2px;background:var(--accent-bg)}
+  .node .t{font-weight:700;color:var(--ink);font-size:.9rem;display:block}
+  .node .s{font-family:var(--mono);font-size:.64rem;color:var(--muted);margin-top:5px;display:block;line-height:1.4}
+  .arrow{color:var(--accent);font-size:1.05rem;flex:0 0 auto;font-weight:700}
+  .arrow.bi{font-size:.82rem}
+
+  .pts{list-style:none;margin-top:6px}
+  .pts li{font-size:.9rem;color:var(--text);padding-left:15px;position:relative;margin-bottom:5px}
+  .pts li::before{content:"–";position:absolute;left:0;color:var(--accent-soft)}
+  .pts li b{color:var(--accent)}
+
+  .note{margin-top:16px;border-left:3px solid var(--accent);background:var(--accent-bg);
+    border-radius:0 8px 8px 0;padding:12px 16px;font-size:.9rem;color:var(--text)}
+  .note b{color:var(--accent)}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--faint);font-family:var(--mono);font-size:.74rem}
+
+  @media(max-width:600px){
+    .flow{flex-direction:column;align-items:stretch}
+    .node{min-width:0}
+    .arrow{align-self:center}
+    .arrow:not(.bi){transform:rotate(90deg)}
+    .arrow.bi{font-size:.7rem}
+    section.block{padding:34px 0}
+  }
+  @media print{header.top,.node.key,.note{background:#fff}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="back" href="./index.html">← 목차</a>
+    <div class="accent-line"></div>
+    <h1>이지케어텍 — 시스템 개념도</h1>
+    <p class="sub">의료 EMR 클라우드에서 담당한 백엔드·시스템 통합 작업을 개념 수준으로 정리한 다이어그램입니다.</p>
+    <p class="disc">※ 사내 기밀 구조(실제 토폴로지·기관 식별정보·IP 등)는 제외하고, 역할과 데이터 흐름만 추상화했습니다.</p>
+    <p class="legend">★ = 직접 설계·구축한 컴포넌트</p>
+  </div>
+</header>
+
+<!-- 1. 협력업체 프록시 -->
+<section class="block">
+  <div class="wrap">
+    <h2 class="sec">협력업체 프록시 서버</h2>
+    <p class="desc">망분리 환경에서 협력업체 요청을 인증·중계하는 프록시.</p>
+    <div class="flow">
+      <div class="node"><span class="t">협력업체</span><span class="s">외부</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="t">방화벽 · 망분리</span></div>
+      <div class="arrow">→</div>
+      <div class="node key"><span class="t">프록시 서버 ★</span><span class="s">C#/.NET · 토큰 인증</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="t">Mirth Connect</span><span class="s">메시지 연동</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="t">내부 EMR</span></div>
+    </div>
+    <ul class="pts">
+      <li><b>REST API 설계</b>와 망분리·방화벽 정책 수립</li>
+      <li>접근 권한용 <b>토큰 발급·인증</b>, 진료대기 전광판 Mirth 연동</li>
+      <li>REST API 스트레스 테스트 · 에러 추적</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. 공공기관 프록시 -->
+<section class="block">
+  <div class="wrap">
+    <h2 class="sec">공공기관 프록시 서버</h2>
+    <p class="desc">DUR·HIRA·공단·CDC 등 공공기관 연동을 중계하는 프록시.</p>
+    <div class="flow">
+      <div class="node"><span class="t">공공기관</span><span class="s">DUR · HIRA · 공단 · CDC · KICA</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="t">고정 IP · 방화벽</span></div>
+      <div class="arrow">→</div>
+      <div class="node key"><span class="t">공공기관 프록시 ★</span><span class="s">C#/.NET · WSDL · REST</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="t">내부 EMR</span></div>
+    </div>
+    <ul class="pts">
+      <li>망분리 설계, <b>DUR·HIRA Broker</b> 연동</li>
+      <li>공단 자격조회 <b>WSDL</b> · CDC(예방접종) 서비스 연동</li>
+    </ul>
+    <div class="note"><b>장애 복구 사례</b> — KICA 장애로 병원 업무가 중단됐을 때, 연동이 <b>유동 IP에 의존</b>하던 것을 원인으로 진단하고 <b>고정 IP 참조</b>로 전환해 복구.</div>
+  </div>
+</section>
+
+<!-- 3. 로컬 웹서버 -->
+<section class="block">
+  <div class="wrap">
+    <h2 class="sec">주변기기용 로컬 웹서버</h2>
+    <p class="desc">브라우저 EMR이 로컬 주변기기를 제어하도록 중계하는 로컬 서버.</p>
+    <div class="flow">
+      <div class="node"><span class="t">EMR 브라우저</span><span class="s">프론트</span></div>
+      <div class="arrow bi">↔ WebSocket/TCP ↔</div>
+      <div class="node key"><span class="t">로컬 웹서버 ★</span><span class="s">C#/.NET</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="t">주변기기</span><span class="s">VAN 결제 · 사인패드<br>프린터 · 인증서</span></div>
+    </div>
+    <ul class="pts">
+      <li><b>WebSocket·TCP</b> 통신 설계·구현</li>
+      <li>VAN 결제·사인패드·인증서 로그인·HIRA·구 EMR 연동</li>
+      <li>프린터·메신저·라이브 업데이트 연동</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4. 라이브 업데이트 -->
+<section class="block">
+  <div class="wrap">
+    <h2 class="sec">라이브 업데이트</h2>
+    <p class="desc">자사 프로그램의 버전 관리·자동 업데이트·롤백.</p>
+    <div class="flow">
+      <div class="node"><span class="t">배포 서버</span><span class="s">버전 · 패키지</span></div>
+      <div class="arrow">→</div>
+      <div class="node key"><span class="t">업데이트 클라이언트 ★</span><span class="s">WPF · C#/.NET</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="t">버전 체크</span><span class="s">변경 감지</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><span class="t">다운로드 · 교체 · 재시작</span></div>
+    </div>
+    <ul class="pts">
+      <li>실행 시 파일 버전·변경 사항 체크 후 <b>자동 업데이트·실행</b></li>
+      <li>배포·<b>롤백</b> 관리 시스템 구축</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><a href="./index.html">← 목차로 돌아가기</a></div>
+</footer>
+
+</body>
+</html>
