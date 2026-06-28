@@ -118,6 +118,7 @@
     <p class="sub">하완수 · 풀스택 개발자 — 개인 프로젝트와 회사 시스템 작업.</p>
     <div class="toc">
       <a href="#kosmogram">Kosmogram (개인작)</a>
+      <a href="#tcurity">T-Curity (봇 방지 CAPTCHA)</a>
       <a href="#apptest">앱테스트에이아이 (시스템 개념도)</a>
       <a href="#easycaretech">이지케어텍 (시스템 개념도)</a>
     </div>
@@ -178,6 +179,39 @@ WHERE bal &gt;= :n <span class="c">-- 0행이면 롤백</span></code></div>
       <span class="m" style="background:#e3f3ea;color:#2f7d4f">Live (2026.06 기준)</span>
     </div>
     <div class="stack-line">React 18 · Phaser 4 · Zustand · TanStack Query · Fastify · Prisma · SQLite · Zod · Clerk · Fly.io · Cloudflare · GitHub Actions</div>
+  </div>
+</section>
+
+<!-- ══ T-CURITY ══ -->
+<section class="proj" id="tcurity">
+  <div class="wrap">
+    <span class="eyebrow">Team Project · 카카오클라우드 부트캠프</span>
+    <h2 class="sec">T-Curity — 티켓팅 봇 방지 2-Phase CAPTCHA</h2>
+    <p class="lead">티켓팅 매크로·봇을 막는 행동 기반 2단계 CAPTCHA 서비스. 전체 구조 설계를 주도하고, 클라이언트 SDK와 데모 티켓사이트를 직접 구현했다.</p>
+    <p class="disc">※ 팀 프로젝트(t-curity). 본인 담당 = 시스템 설계 주도 + 클라이언트 SDK·데모(프론트). 백엔드·AI 모델은 팀원.</p>
+    <p class="legend">★ = 직접 설계·구현</p>
+
+    <div class="dgroup">
+      <h3>2-Phase 행동 검증 — 프론트 비신뢰 → S2S</h3>
+      <p class="ddesc">사용자 행동을 클라이언트가 캡처·인코딩하고, 최종 검증은 서버 간(S2S) 통신으로만 수행.</p>
+      <div class="flow">
+        <div class="node"><span class="t">사용자 행동</span><span class="s">드로잉 · 선택</span></div>
+        <div class="arrow">→</div>
+        <div class="node key"><span class="t">CAPTCHA SDK ★</span><span class="s">TS · Phase A/B · 무의존성</span></div>
+        <div class="arrow">→</div>
+        <div class="node key"><span class="t">행동 캡처·인코딩 ★</span><span class="s">포인터·궤적 · 타입 계약</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><span class="t">백엔드 S2S 검증</span><span class="s">FastAPI · 팀</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><span class="t">AI 봇탐지</span><span class="s">Isolation/Random Forest · 팀</span></div>
+      </div>
+      <ul class="pts">
+        <li><b>전체 구조 설계 주도</b> — 2-Phase · "프론트 비신뢰" S2S 검증 모델</li>
+        <li><b>클라이언트 SDK</b>(TypeScript·무의존성) 주 작성 — Phase A(캔버스 드로잉) + Phase B(이미지 선택), 포인터·궤적 행동 캡처→인코딩, 타입 계약·정책(비활성 타임아웃·한도)·Mock 클라이언트</li>
+        <li><b>데모 티켓사이트</b>(React 19·Vite·Tailwind) — 예매·대기열·SDK 통합·GitHub Pages CI/CD</li>
+      </ul>
+      <div class="links" style="margin-top:8px"><a class="btn" href="https://github.com/t-curity/captcha-sdk" target="_blank" rel="noopener">SDK 코드 ↗</a></div>
+    </div>
   </div>
 </section>
 
