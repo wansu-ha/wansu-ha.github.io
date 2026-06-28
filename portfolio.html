@@ -140,7 +140,7 @@
         </div>
       </div>
     </div>
-    <p class="lead">노노그램을 풀어 영토를 큐레이션하는 협력 모자이크 웹게임. 노노그램 풀이 엔진, 토러스 무한 월드, 이중 통화 경제 등 알고리즘·게임 수학·동시성까지 직접 다뤘다. 기획·아키텍처·기술 선택은 직접 결정하고, 세부 구현은 AI 페어로 가속했다.</p>
+    <p class="lead">노노그램을 풀어 영토를 큐레이션하는 협력 모자이크 웹게임. 노노그램 풀이 엔진, 토러스 무한 월드, 이중 통화 경제 등 알고리즘·게임 수학·동시성까지 다뤘다. 기획·아키텍처·기술 선택은 직접 결정하고, 세부 구현은 AI 페어로 가속했다.</p>
 
     <div class="gallery">
       <figure class="shot big"><img src="./assets/02-world.png" alt="토러스 세계" loading="lazy"><figcaption>토러스 무한 세계 — 영지 모자이크 + 미니맵</figcaption></figure>
@@ -162,7 +162,7 @@
         <code>torusDelta(95,5,100)===10
 <span class="c">// 직선 -90 대신 wrap +10</span></code></div>
       <div class="card"><h3>협력 경제 — 장부·동시성</h3>
-        <p>모든 통화 변동을 장부 1행으로 원자 기록. 더블스펜드는 조건부 감산으로 차단.</p>
+        <p>모든 통화 변동을 장부 1행으로 원자적 기록. 더블스펜드는 조건부 감산으로 차단.</p>
         <code>UPDATE ... SET bal = bal - :n
 WHERE bal &gt;= :n <span class="c">-- 0행이면 롤백</span></code></div>
       <div class="card"><h3>군집 인식 연결망</h3>
@@ -278,7 +278,7 @@ WHERE bal &gt;= :n <span class="c">-- 0행이면 롤백</span></code></div>
         <div class="node"><span class="t">내부 EMR</span></div>
       </div>
       <ul class="pts"><li>망분리 설계, <b>DUR·HIRA Broker</b> 연동</li><li>공단 자격조회 <b>WSDL</b> · CDC(예방접종) 서비스 연동</li></ul>
-      <div class="note"><b>장애 복구 사례</b> — KICA 장애로 병원 업무가 중단됐을 때, 연동이 <b>유동 IP에 의존</b>하던 것을 원인으로 진단하고 <b>고정 IP 참조</b>로 전환해 복구.</div>
+      <div class="note"><b>장애 복구 사례</b> — KICA 장애로 병원 업무가 중단됐을 때, 연동이 <b>유동 IP에 의존</b>하던 것이 원인임을 진단하고 <b>고정 IP 참조</b>로 전환해 복구.</div>
     </div>
 
     <div class="dgroup">
