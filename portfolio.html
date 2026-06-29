@@ -154,12 +154,12 @@
     <span class="eyebrow" style="margin-top:8px">핵심 도전</span>
     <div class="chal">
       <div class="card"><h3>노노그램 풀이·출제 검증</h3>
-        <p>5~10 가변 화판의 풀이 수를 판정(2~5개는 연작 흡수). 라인 시뮬레이션으로 난이도 별점(1~5)·라벨(universal·maniac·reject)을 매기고, 거부 시 1셀 자동수정을 제안. 전역 중복은 canonical SHA-256으로 차단.</p>
+        <p>5~10 가변 화판의 풀이 수를 판정(2~5개는 연작 흡수). 라인 시뮬레이션으로 난이도 별점(1~5)·라벨(universal·color_only·mono_only·maniac·reject 5종)을 매기고, 거부 시 1셀 자동수정을 제안. 완전 동일 그림은 canonical SHA-256으로 차단(회전·반사는 별개).</p>
         <code>solveAll(hints, size, 6)
 <span class="c">// 1=단일·2~5=연작·6+=거부 (size 5~10)
 // 출제검증(PVS) p99: 5×5&lt;5ms·10×10&lt;100ms · CI 회귀 게이트</span></code></div>
       <div class="card"><h3>토러스 무한 월드 — 엔진 없이 직접 렌더</h3>
-        <p>좌표가 wrap되는 도넛 평면. 거리·충돌을 항상 짧은 경로로 계산. 세계=SVG/DOM 직접 렌더, UI=React.</p>
+        <p>좌표가 wrap되는 도넛 평면. 거리는 짧은 경로, 겹침은 wrap 경계까지 검사. 세계=SVG/DOM 직접 렌더, UI=React.</p>
         <code>torusDelta(95,5,100)===10
 <span class="c">// 직선 -90 대신 wrap +10</span></code></div>
       <div class="card"><h3>협력 경제 — 장부·동시성</h3>
@@ -167,7 +167,7 @@
         <code>UPDATE ... SET bal = bal - :n
 WHERE bal &gt;= :n <span class="c">-- 0행이면 롤백</span></code></div>
       <div class="card"><h3>군집 인식 연결망</h3>
-        <p>영지들이 자연스러운 도시처럼 뭉치도록, 토러스-MST 백본에서 가까운 간선만 군집으로 묶고 군집 사이는 다리 하나로 잇는다. 같은 군집 안은 Gabriel 이웃으로 촘촘히.</p>
+        <p>영지들이 자연스러운 도시처럼 뭉치도록, 토러스-MST 백본에서 가까운 간선만 군집으로 묶고 군집 사이는 다리 하나로 잇는다. 같은 군집 안은 Gabriel 기반 근접 그래프(차수 상한)로 촘촘히.</p>
         <code>MST(rest 가중) → 군집 = rest ≤ dLocal 연결요소
 <span class="c">// intra: Gabriel(같은 군집) ∪ bridge: 군집쌍당 1
 // 라이브 렌더에서 실제 호출 (gameWorld.ts)</span></code></div>
