@@ -9,10 +9,10 @@
 <meta property="og:title" content="하완수 — 포트폴리오" />
 <meta property="og:description" content="1인 풀스택 라이브 웹게임 Kosmogram, 봇 방지 CAPTCHA T-Curity, 의료 EMR·원격 테스트 플랫폼 시스템 개념도." />
 <meta property="og:url" content="https://wansu-ha.github.io/portfolio.html" />
-<meta property="og:image" content="https://wansu-ha.github.io/assets/02-world.png" />
+<meta property="og:image" content="https://wansu-ha.github.io/assets/og-card-portfolio.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="og:locale" content="ko_KR" />
-<meta property="og:image:alt" content="Kosmogram 토러스 세계 스크린샷" />
+<meta property="og:image:alt" content="하완수 — 포트폴리오" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%231f3a5f'/%3E%3Ctext x='32' y='34' font-family='sans-serif' font-size='34' font-weight='700' fill='%23ffffff' text-anchor='middle' dominant-baseline='central'%3E%ED%95%98%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,6 +67,8 @@
   .shot.big{grid-column:span 4;aspect-ratio:16/10}
   .shot.tall{grid-column:span 2}
   .shot.third{grid-column:span 2;aspect-ratio:4/3}
+  .shot.wide{grid-column:span 6;aspect-ratio:12/5;background:#060b0c}
+  .shot.wide img{object-fit:contain}
 
   /* challenge cards */
   .chal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
@@ -105,6 +107,7 @@
   @media(max-width:760px){
     .gallery{grid-template-columns:repeat(2,1fr)}
     .shot.big,.shot.tall,.shot.third{grid-column:span 2;aspect-ratio:16/10}
+    .shot.wide{grid-column:span 2}
     .chal{grid-template-columns:1fr}
     section.proj{padding:40px 0}
   }
@@ -154,6 +157,7 @@
     <p class="lead">노노그램을 풀어 자기 영지를 가꾸는 협력 모자이크 웹게임. 노노그램 풀이 엔진, 토러스 무한 월드, 이중 통화 경제 등 알고리즘·게임 수학·동시성까지 다뤘다. 기획·아키텍처·기술 선택은 직접 결정하고, 세부 구현은 AI 페어로 가속했다.</p>
 
     <div class="gallery">
+      <figure class="shot wide"><img src="./assets/00-logo.png" alt="Kosmogram 로고 — A gram of grams" loading="lazy"></figure>
       <figure class="shot big"><img src="./assets/02-world.png" alt="토러스 세계" loading="lazy"><figcaption>토러스 무한 세계 — 영지 모자이크 + 미니맵</figcaption></figure>
       <figure class="shot tall"><img src="./assets/01-landing.png" alt="첫 화면" loading="lazy"><figcaption>게스트로 즉시 시작</figcaption></figure>
       <figure class="shot third"><img src="./assets/03-solve.png" alt="풀이" loading="lazy"><figcaption>컬러 노노그램 풀이</figcaption></figure>
