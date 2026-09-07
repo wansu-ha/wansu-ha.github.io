@@ -1,0 +1,34 @@
+{%- comment %}
+  ═══════════════════════════════════════════════════════════
+   공통 <head> — 세 페이지가 함께 씁니다.
+   페이지마다 다른 값(제목·설명·OG 카드)만 각 페이지 맨 위
+   "---" 사이의 앞머리(front matter)에 적으면 됩니다.
+  ═══════════════════════════════════════════════════════════
+{% endcomment -%}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ page.og_title | default: page.title }}" />
+<meta property="og:description" content="{{ page.og_description | default: page.description }}" />
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+<meta property="og:image" content="{{ page.og_image | default: '/assets/og-card.png' | absolute_url }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:image:alt" content="{{ page.og_image_alt | default: site.data.site.name | append: ' — ' | append: site.data.site.role }}" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%231f3a5f'/%3E%3Ctext x='32' y='34' font-family='sans-serif' font-size='34' font-weight='700' fill='%23ffffff' text-anchor='middle' dominant-baseline='central'%3E%ED%95%98%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+{% for name in page.styles -%}
+<link rel="stylesheet" href="./assets/css/{{ name }}.css" />
+{% endfor -%}
+</head>
+<body>
+{{ content }}</body>
+</html>
