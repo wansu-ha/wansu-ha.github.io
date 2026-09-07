@@ -1,0 +1,242 @@
+# ═══════════════════════════════════════════════════════════════════
+#  포트폴리오 내용
+#
+#  이 파일만 고치면 포트폴리오 페이지가 바뀝니다. HTML을 열 필요가 없습니다.
+#
+#  ▸ 항목을 추가하려면 같은 모양의 묶음을 복사해 글자만 바꾸세요.
+#  ▸ 문장 안에서 굵게 강조할 때만 <b>…</b> 를 씁니다.
+#  ▸ 값에 작은따옴표(')가 들어가면 "큰따옴표"로 감싸세요.
+#  ▸ 들여쓰기는 공백만 씁니다(탭 금지).
+# ═══════════════════════════════════════════════════════════════════
+
+
+# ── 페이지 머리말 ─────────────────────────────────────────────────
+header:
+  back: '← 목차'
+  title: '포트폴리오'
+  sub: '하완수 · 풀스택 개발자 — 개인 프로젝트와 회사 시스템 작업.'
+  toc:            # 상단 바로가기 버튼
+    - { text: 'Kosmogram (개인작)', href: '#kosmogram' }
+    - { text: 'T-Curity (봇 방지 CAPTCHA)', href: '#tcurity' }
+    - { text: '앱테스트에이아이 (시스템 개념도)', href: '#apptest' }
+    - { text: '이지케어텍 (시스템 개념도)', href: '#easycaretech' }
+
+
+# ── 프로젝트 섹션 ─────────────────────────────────────────────────
+#  kind: showcase = 갤러리·도전카드형 (Kosmogram)
+#        diagram  = 흐름도형 (그 외)
+#  id 는 상단 바로가기(#앵커)와 이어집니다.
+#
+#  flow(흐름도) 한 칸: t = 굵은 이름 / s = 아래 작은 설명
+#                     key: true  → 강조 테두리
+#                     arrow      → 앞 칸과 잇는 화살표 (↔ 가 들어가면 양방향 모양)
+sections:
+
+  # ······ Kosmogram ······
+  - id: 'kosmogram'
+    kind: showcase
+    eyebrow: 'Personal Project'
+    title: 'Kosmogram'
+    role_line: '1인 풀스택 — 기획·설계·FE·BE·인프라·운영 · 라이브 서비스 중'
+    badge: '● Live'
+    links:
+      - { text: '서비스 바로가기 ↗', href: 'https://kosmogram.io', primary: true, external: true }
+    lead: '노노그램을 풀어 자기 영지를 가꾸는 협력 모자이크 웹게임. 노노그램 풀이 엔진, 토러스 무한 월드, 이중 통화 경제 등 알고리즘·게임 수학·동시성까지 다뤘다. 기획·아키텍처·기술 선택은 직접 결정하고, 세부 구현은 AI 페어로 가속했다.'
+
+    # 스크린샷 — size: wide(가로 전체) / big(크게) / tall(세로) / third(1/3)
+    gallery:
+      - src: './assets/00-logo.png'
+        alt: 'Kosmogram 로고 — A gram of grams'
+        size: wide
+      - src: './assets/02-world.png'
+        alt: '토러스 세계'
+        caption: '토러스 무한 세계 — 영지 모자이크 + 미니맵'
+        size: big
+      - src: './assets/01-landing.png'
+        alt: '첫 화면'
+        caption: '게스트로 즉시 시작'
+        size: tall
+      - src: './assets/03-solve.png'
+        alt: '풀이'
+        caption: '컬러 노노그램 풀이'
+        size: third
+      - src: './assets/05-create.png'
+        alt: '제작'
+        caption: '출제 — 실시간 유일해 검증'
+        size: third
+      - src: './assets/06-codex.png'
+        alt: '도감'
+        caption: '도감 — 발견·풀이 기록'
+        size: third
+
+    challenges_label: '핵심 도전'
+    # code 는 화면에 그대로 나오는 코드 조각입니다.
+    #   부등호는 &lt; &gt; 로 쓰고, 주석은 <span class="c">…</span> 로 감싸면 흐리게 표시됩니다.
+    challenges:
+      - title: '노노그램 풀이·출제 검증'
+        desc: '5~10 가변 화판의 풀이 수를 판정(2~5개는 연작 흡수). 라인 시뮬레이션으로 난이도 별점(1~5)·라벨(universal·color_only·mono_only·maniac·reject 5종)을 매기고, 거부 시 1셀 자동수정을 제안. 완전 동일 그림은 canonical SHA-256으로 차단(회전·반사는 별개).'
+        code: |-
+          solveAll(hints, size, 6)
+          <span class="c">// 1=단일·2~5=연작·6+=거부 (size 5~10)
+          // 출제검증(PVS) p99: 5×5&lt;5ms·10×10&lt;100ms · CI 회귀 게이트</span>
+      - title: '토러스 무한 월드 — 엔진 없이 직접 렌더'
+        desc: '좌표가 wrap되는 도넛 평면. 거리는 짧은 경로, 겹침은 wrap 경계까지 검사. 세계=SVG/DOM 직접 렌더, UI=React.'
+        code: |-
+          torusDelta(95,5,100)===10
+          <span class="c">// 직선 -90 대신 wrap +10</span>
+      - title: '협력 경제 — 장부·동시성'
+        desc: '모든 통화 변동을 장부 1행으로 원자적 기록. 더블스펜드는 조건부 감산으로 차단.'
+        code: |-
+          UPDATE ... SET bal = bal - :n
+          WHERE bal &gt;= :n <span class="c">-- 0행이면 롤백</span>
+      - title: '군집 인식 연결망'
+        desc: '영지들이 자연스러운 도시처럼 뭉치도록, 토러스-MST 백본에서 가까운 간선만 군집으로 묶고 군집 사이는 다리 하나로 잇는다. 같은 군집 안은 Gabriel 기반 근접 그래프(차수 상한)로 촘촘히.'
+        code: |-
+          MST(rest 가중) → 군집 = rest ≤ dLocal 연결요소
+          <span class="c">// intra: Gabriel(같은 군집) ∪ bridge: 군집쌍당 1
+          // 라이브 렌더에서 실제 호출 (gameWorld.ts)</span>
+
+    metrics:        # live: true 면 초록 배지
+      - { text: '테스트 133' }
+      - { text: 'Prisma 27 모델' }
+      - { text: 'API 라우트 15' }
+      - { text: '5패키지 모노레포' }
+      - { text: '커밋 842' }
+      - { text: '~55,000 LOC' }
+      - { text: 'Live (2026.06 기준)', live: true }
+    stack_line: 'React 18 · SVG/Canvas · Zustand · TanStack Query · Fastify · Prisma · SQLite · Zod · Clerk · Fly.io · Cloudflare · GitHub Actions'
+
+  # ······ T-Curity — 티켓팅 봇 방지 2-Phase CAPTCHA ······
+  - id: 'tcurity'
+    kind: diagram
+    eyebrow: 'Team Project · 카카오클라우드 AIaaS 마스터 클래스'
+    title: 'T-Curity — 티켓팅 봇 방지 2-Phase CAPTCHA'
+    lead: '티켓팅 매크로·봇을 막는 행동 기반 2단계 CAPTCHA 서비스. 전체 구조 설계를 주도하고, 클라이언트 SDK와 데모 티켓사이트를 직접 구현했다.'
+    disclaimer: '※ 팀 프로젝트(t-curity). 본인 담당 = 시스템 설계 주도 + 클라이언트 SDK·데모(프론트). 백엔드·AI 모델은 팀원.'
+    legend: '★ = 직접 설계·구현'
+    groups:
+      - title: '2-Phase 행동 검증 — 프론트 비신뢰 → S2S'
+        desc: '사용자 행동을 클라이언트가 캡처·인코딩하고, 최종 검증은 서버 간(S2S) 통신으로만 수행.'
+        flow:
+          - { t: '사용자 행동', s: '드로잉 · 선택' }
+          - { arrow: '→', t: 'CAPTCHA SDK ★', s: 'TS · Phase A/B · 무의존성', key: true }
+          - { arrow: '→', t: '행동 캡처·인코딩 ★', s: '포인터·궤적 · 타입 계약', key: true }
+          - { arrow: '→', t: '백엔드 S2S 검증', s: 'FastAPI · 팀' }
+          - { arrow: '→', t: 'AI 봇탐지', s: 'Isolation/Random Forest · 팀' }
+        points:
+          - '<b>전체 구조 설계 주도</b> — 2-Phase · "프론트 비신뢰" S2S 검증 모델'
+          - '<b>클라이언트 SDK</b>(TypeScript·무의존성) 주 작성 — Phase A(캔버스 드로잉) + Phase B(이미지 선택), 포인터·궤적 행동 캡처→인코딩, 타입 계약·정책(비활성 타임아웃·한도)·Mock 클라이언트'
+          - '<b>데모 티켓사이트</b>(React 19·Vite·Tailwind) — 예매·대기열·SDK 통합·GitHub Pages CI/CD'
+        links:
+          - { text: 'SDK 코드 ↗', href: 'https://github.com/t-curity/captcha-sdk', external: true }
+
+  # ······ 앱테스트에이아이 — 시스템 개념도 ······
+  - id: 'apptest'
+    kind: diagram
+    eyebrow: 'Company Work'
+    title: '앱테스트에이아이 — 시스템 개념도'
+    lead: '원격 테스트 플랫폼 ReX(Windows 호스트 에이전트)에서 담당한 분산 업데이트·실시간 미러링·세션 격리.'
+    disclaimer: '※ 사내 기밀 구조(내부 토폴로지·식별정보)는 제외하고 역할·데이터 흐름만 추상화했습니다.'
+    legend: '★ = 직접 설계·구축한 컴포넌트'
+    groups:
+      - title: '분산 자동 업데이트 (풀스택)'
+        desc: '에이전트와 디바이스 관리 서버의 상태를 WebSocket으로 동기화.'
+        flow:
+          - { t: '에이전트 ★', s: 'C# .NET', key: true }
+          - { arrow: '↔ WebSocket ↔', t: '디바이스 관리 서버 ★', s: 'Python', key: true }
+          - { arrow: '→', t: '디바이스 상태', s: '점유 → 가용' }
+        points:
+          - '<b>update_completed</b>(WebSocket) 수신 시 디바이스 상태(점유→가용)를 전환하는 분산 상태머신을 C#·Python 양쪽 구현'
+          - '버전 무변경(이미 최신) 등 엣지 케이스 처리 · 진행률 GUI 업데이터'
+
+      - title: '빌드·코드 서명·배포 파이프라인'
+        desc: '데스크톱 클라이언트의 빌드부터 서명·인스톨러·릴리스까지.'
+        flow:
+          - { t: '소스 빌드', s: 'C#/.NET' }
+          - { arrow: '→', t: '코드 서명 ★', s: 'SafeNet USB · DigiCert', key: true }
+          - { arrow: '→', t: 'Inno Setup 인스톨러 ★', s: 'restartreplace · 다국어', key: true }
+          - { arrow: '→', t: '배포 · 릴리스', s: 'v1.7.6.x 주도' }
+        points:
+          - '<b>코드 서명 자동화</b> — SafeNet USB 토큰 + DigiCert 통합, 운영 가이드(CODESIGN.md) 정립'
+          - '인스톨러 — 설치 마법사 다국어, 파일 잠금 시 <b>restartreplace</b>, LOCAL/REMOTE 모드 서비스 등록·중지 순서'
+          - 'v1.7.6.1 → .18 <b>빌드·릴리스 주도 운영</b>(18회)'
+
+      - title: '원격 미러링·실시간 통신'
+        desc: '화면 캡처를 WebRTC로 원격 전송, 양방향 클립보드.'
+        flow:
+          - { t: '화면 캡처 ★', s: 'WGC', key: true }
+          - { arrow: '→', t: 'WebRTC ★', s: 'ICE · 시그널링 · DataChannel', key: true }
+          - { arrow: '↔', t: '원격 뷰어' }
+        points:
+          - '캡처 제외 플래그 동적 토글로 미러링 회귀 수정, ICE 실패 추적 → 방화벽 차단 규칙 원인 발견'
+          - '성능 캡처 타임아웃을 PerformanceCounter 프리웜업으로 해소, WGC Win10/11 화질 PSNR +12dB·OCR +47%'
+          - 'WebRTC DataChannel 양방향 클립보드(SCTP 청킹·Echo 방지·역유출 차단)'
+
+      - title: '브라우저 세션 격리'
+        desc: '공유 테스트 기기의 사용자 간 세션 누출 차단.'
+        flow:
+          - { t: '디바이스 임대', s: '회수 · 준비' }
+          - { arrow: '→', t: '세션 정리 ★', s: '멀티 프로필 · Local State', key: true }
+          - { arrow: '→', t: '깨끗한 다음 세션' }
+        points:
+          - '임대 경계(회수·준비)에서 브라우저 세션 데이터(멀티 프로필·Local State·Secure Preferences)를 정리해 사용자 간 세션 누출 차단'
+
+  # ······ 이지케어텍 — 시스템 개념도 ······
+  - id: 'easycaretech'
+    kind: diagram
+    eyebrow: 'Company Work'
+    title: '이지케어텍 — 시스템 개념도'
+    lead: '전국 17개 병원이 쓰는 의료 EMR에서 담당한 백엔드·시스템 통합 작업.'
+    disclaimer: '※ 사내 기밀 구조(실제 토폴로지·기관 식별정보·IP 등)는 제외하고, 역할과 데이터 흐름만 추상화했습니다.'
+    legend: '★ = 직접 설계·구축한 컴포넌트'
+    groups:
+      - title: '협력업체 프록시 서버'
+        desc: '망분리 환경에서 협력업체 요청을 인증·중계하는 프록시.'
+        flow:
+          - { t: '협력업체', s: '외부' }
+          - { arrow: '→', t: '방화벽 · 망분리' }
+          - { arrow: '→', t: '프록시 서버 ★', s: 'C#/.NET · 토큰 인증', key: true }
+          - { arrow: '→', t: 'Mirth Connect', s: '메시지 연동' }
+          - { arrow: '→', t: '내부 EMR' }
+        points:
+          - '<b>REST API 설계</b>와 망분리·방화벽 정책 수립'
+          - '접근 권한용 <b>토큰 발급·인증</b>, 진료대기 전광판 Mirth 연동'
+          - '스트레스 테스트·에러 추적'
+
+      - title: '공공기관 프록시 서버'
+        desc: 'DUR·HIRA·공단·CDC 등 공공기관 연동을 중계하는 프록시.'
+        flow:
+          - { t: '공공기관', s: 'DUR · HIRA · 공단 · CDC · KICA' }
+          - { arrow: '→', t: '고정 IP · 방화벽' }
+          - { arrow: '→', t: '공공기관 프록시 ★', s: 'C#/.NET · WSDL · REST', key: true }
+          - { arrow: '→', t: '내부 EMR' }
+        points:
+          - '망분리 설계, <b>DUR·HIRA Broker</b> 연동'
+          - '공단 자격조회 <b>WSDL</b> · CDC(예방접종) 서비스 연동'
+        note: '<b>장애 복구 사례</b> — KICA 서버 3대 중 2대 장애로 병원 업무가 중단됐을 때, 연동이 <b>유동 IP에 의존</b>해 장애 서버로 연결되던 것이 원인임을 진단. <b>정상 서버 고정 IP</b>로 전환해 <b>임시 복구</b>하고, KICA 장애 해소 후 원래 구성으로 롤백해 정상화.'
+
+      - title: '주변기기용 로컬 웹서버'
+        desc: '브라우저 EMR이 로컬 주변기기를 제어하도록 중계하는 로컬 서버.'
+        flow:
+          - { t: 'EMR 브라우저', s: '프론트' }
+          - { arrow: '↔ WebSocket/TCP ↔', t: '로컬 웹서버 ★', s: 'C#/.NET', key: true }
+          - { arrow: '→', t: '주변기기', s: 'VAN 결제 · 사인패드<br>프린터 · 인증서' }
+        points:
+          - '<b>WebSocket·TCP</b> 통신 설계·구현'
+          - 'VAN 결제·사인패드·인증서 로그인·HIRA·구 EMR 연동'
+          - '프린터·메신저·라이브 업데이트 연동'
+
+      - title: '라이브 업데이트'
+        desc: '자사 프로그램의 버전 관리·자동 업데이트·롤백.'
+        flow:
+          - { t: '배포 서버', s: '버전 · 패키지' }
+          - { arrow: '→', t: '업데이트 클라이언트 ★', s: 'WPF · C#/.NET', key: true }
+          - { arrow: '→', t: '버전 체크', s: '변경 감지' }
+          - { arrow: '→', t: '다운로드 · 교체 · 재시작' }
+        points:
+          - '실행 시 파일 버전·변경 사항 체크 후 <b>자동 업데이트·실행</b>'
+          - '배포·<b>롤백</b> 관리 시스템 구축'
+
+
+# ── 푸터 ─────────────────────────────────────────────────────────
+footer: { text: '← 목차로 돌아가기', href: './index.html' }

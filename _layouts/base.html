@@ -5,6 +5,7 @@
    "---" 사이의 앞머리(front matter)에 적으면 됩니다.
   ═══════════════════════════════════════════════════════════
 {% endcomment -%}
+{%- assign og_alt_default = site.data.site.name | append: ' — ' | append: site.data.site.role -%}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +20,7 @@
 <meta property="og:image" content="{{ page.og_image | default: '/assets/og-card.png' | absolute_url }}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="og:locale" content="ko_KR" />
-<meta property="og:image:alt" content="{{ page.og_image_alt | default: site.data.site.name | append: ' — ' | append: site.data.site.role }}" />
+<meta property="og:image:alt" content="{{ page.og_image_alt | default: og_alt_default }}" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%231f3a5f'/%3E%3Ctext x='32' y='34' font-family='sans-serif' font-size='34' font-weight='700' fill='%23ffffff' text-anchor='middle' dominant-baseline='central'%3E%ED%95%98%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
