@@ -18,108 +18,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-<style>
-  :root{
-    --bg:#ffffff; --bg-2:#f7f8fa; --card:#ffffff;
-    --ink:#1a1d23; --text:#3c424b; --muted:#6b7280; --faint:#9aa1ab;
-    --line:#e6e9ee; --line-2:#eef1f5;
-    --accent:#1f3a5f; --accent-soft:#33598a; --accent-bg:#eef2f8;
-    --chip:#eef1f5; --chip-tx:#46505d;
-    --maxw:1000px;
-    --sans:"Pretendard","Pretendard Variable",system-ui,sans-serif;
-    --mono:"JetBrains Mono",monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
-  a{color:var(--accent-soft);text-decoration:none}
-  a:hover{text-decoration:underline}
-  ::selection{background:#cfe0f3}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
-  .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:8px;font-weight:600}
-
-  header.top{background:var(--bg-2);border-bottom:1px solid var(--line);padding:48px 0 38px}
-  .back{font-family:var(--mono);font-size:.76rem;color:var(--accent);display:inline-block;margin-bottom:18px}
-  .accent-line{width:46px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:20px}
-  h1{font-size:clamp(1.8rem,5vw,2.5rem);font-weight:800;color:var(--ink);letter-spacing:-.01em}
-  header .sub{color:var(--muted);margin-top:12px}
-  .toc{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-  .toc a{font-family:var(--mono);font-size:.78rem;border:1px solid var(--line);border-radius:6px;padding:7px 14px;color:var(--accent)}
-  .toc a:hover{text-decoration:none;background:var(--accent);color:#fff}
-
-  section.proj{padding:54px 0;border-bottom:1px solid var(--line)}
-  .phead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
-  h2.sec{font-size:1.7rem;color:var(--ink);font-weight:800;letter-spacing:-.01em}
-  .badge{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#2f7d4f;background:#e3f3ea;border-radius:100px;padding:4px 11px;display:inline-block;margin-bottom:10px;font-weight:600}
-  .role-line{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin-top:8px}
-  .links{display:flex;gap:10px;flex-wrap:wrap}
-  .btn{font-family:var(--mono);font-size:.78rem;padding:10px 18px;border-radius:6px;border:1px solid var(--accent);color:var(--accent);transition:.18s}
-  .btn:hover{text-decoration:none;background:var(--accent);color:#fff}
-  .btn.primary{background:var(--accent);color:#fff}
-  .lead{font-size:1.05rem;color:var(--text);margin:18px 0 8px;max-width:760px}
-
-  /* gallery */
-  .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:22px 0}
-  .shot{position:relative;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#0b0805}
-  .shot img{display:block;width:100%;height:100%;object-fit:cover}
-  .shot figcaption{position:absolute;left:0;right:0;bottom:0;font-family:var(--mono);font-size:.66rem;color:#fff;padding:16px 12px 9px;background:linear-gradient(transparent,rgba(8,5,3,.9))}
-  .shot.big{grid-column:span 4;aspect-ratio:16/10}
-  .shot.tall{grid-column:span 2}
-  .shot.third{grid-column:span 2;aspect-ratio:4/3}
-  .shot.wide{grid-column:span 6;aspect-ratio:12/5;background:#060b0c}
-  .shot.wide img{object-fit:contain}
-
-  /* challenge cards */
-  .chal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
-  .card{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;background:var(--card);padding:18px 18px 16px}
-  .card h3{font-size:1rem;color:var(--ink);font-weight:700;margin-bottom:8px}
-  .card p{color:var(--muted);font-size:.88rem;margin-bottom:12px}
-  .card code{display:block;font-family:var(--mono);font-size:.74rem;color:var(--accent);background:#f4f6f8;border:1px solid var(--line);border-radius:5px;padding:9px 11px;white-space:pre-wrap;line-height:1.5}
-  .card code .c{color:var(--faint)}
-
-  .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-  .meta-row .m{font-family:var(--mono);font-size:.74rem;background:var(--accent-bg);color:var(--accent);border-radius:6px;padding:7px 12px;font-weight:600}
-  .stack-line{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:14px}
-
-  /* diagrams (이지케어텍) */
-  .disc{font-family:var(--mono);font-size:.72rem;color:var(--faint);margin-top:10px}
-  .legend{font-family:var(--mono);font-size:.74rem;color:var(--accent);margin-top:6px}
-  .dgroup{margin-top:30px}
-  .dgroup h3{font-size:1.12rem;color:var(--ink);font-weight:700}
-  .dgroup .ddesc{color:var(--muted);font-size:.92rem;margin-top:4px}
-  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 16px}
-  .node{border:1px solid var(--line);border-radius:9px;padding:12px 14px;background:#fff;text-align:center;flex:0 0 auto;min-width:104px}
-  .node.key{border-color:var(--accent);border-width:2px;background:var(--accent-bg)}
-  .node .t{font-weight:700;color:var(--ink);font-size:.88rem;display:block}
-  .node .s{font-family:var(--mono);font-size:.63rem;color:var(--muted);margin-top:5px;display:block;line-height:1.4}
-  .arrow{color:var(--accent);font-size:1.02rem;flex:0 0 auto;font-weight:700}
-  .arrow.bi{font-size:.8rem}
-  .pts{list-style:none;margin-top:4px}
-  .pts li{font-size:.89rem;color:var(--text);padding-left:15px;position:relative;margin-bottom:5px}
-  .pts li::before{content:"–";position:absolute;left:0;color:var(--accent-soft)}
-  .pts li b{color:var(--accent)}
-  .note{margin-top:14px;border-left:3px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:12px 16px;font-size:.89rem;color:var(--text)}
-  .note b{color:var(--accent)}
-
-  footer{padding:42px 0 60px;text-align:center;color:var(--faint);font-family:var(--mono);font-size:.74rem}
-
-  @media(max-width:760px){
-    .gallery{grid-template-columns:repeat(2,1fr)}
-    .shot.big,.shot.tall,.shot.third{grid-column:span 2;aspect-ratio:16/10}
-    .shot.wide{grid-column:span 2}
-    .chal{grid-template-columns:1fr}
-    section.proj{padding:40px 0}
-  }
-  @media(max-width:600px){
-    .flow{flex-direction:column;align-items:stretch}
-    .node{min-width:0}
-    .arrow{align-self:center}
-    .arrow:not(.bi){transform:rotate(90deg)}
-    .arrow.bi{font-size:.7rem}
-  }
-  @media print{header.top,.node.key,.note,.meta-row .m{background:#fff}}
-</style>
+<link rel="stylesheet" href="./assets/css/tokens.css" />
+<link rel="stylesheet" href="./assets/css/base.css" />
+<link rel="stylesheet" href="./assets/css/portfolio.css" />
 </head>
 <body>
 
@@ -147,9 +48,9 @@
         <h2 class="sec">Kosmogram</h2>
         <div class="role-line">1인 풀스택 — 기획·설계·FE·BE·인프라·운영 · 라이브 서비스 중</div>
       </div>
-      <div style="text-align:right">
+      <div class="phead-right">
         <span class="badge">● Live</span><br>
-        <div class="links" style="margin-top:8px">
+        <div class="links mt-8">
           <a class="btn primary" href="https://kosmogram.io" target="_blank" rel="noopener">서비스 바로가기 ↗</a>
         </div>
       </div>
@@ -165,7 +66,7 @@
       <figure class="shot third"><img src="./assets/06-codex.png" alt="도감" loading="lazy"><figcaption>도감 — 발견·풀이 기록</figcaption></figure>
     </div>
 
-    <span class="eyebrow" style="margin-top:8px">핵심 도전</span>
+    <span class="eyebrow mt-8">핵심 도전</span>
     <div class="chal">
       <div class="card"><h3>노노그램 풀이·출제 검증</h3>
         <p>5~10 가변 화판의 풀이 수를 판정(2~5개는 연작 흡수). 라인 시뮬레이션으로 난이도 별점(1~5)·라벨(universal·color_only·mono_only·maniac·reject 5종)을 매기고, 거부 시 1셀 자동수정을 제안. 완전 동일 그림은 canonical SHA-256으로 차단(회전·반사는 별개).</p>
@@ -190,7 +91,7 @@ WHERE bal &gt;= :n <span class="c">-- 0행이면 롤백</span></code></div>
     <div class="meta-row">
       <span class="m">테스트 133</span><span class="m">Prisma 27 모델</span><span class="m">API 라우트 15</span>
       <span class="m">5패키지 모노레포</span><span class="m">커밋 842</span><span class="m">~55,000 LOC</span>
-      <span class="m" style="background:#e3f3ea;color:#2f7d4f">Live (2026.06 기준)</span>
+      <span class="m live">Live (2026.06 기준)</span>
     </div>
     <div class="stack-line">React 18 · SVG/Canvas · Zustand · TanStack Query · Fastify · Prisma · SQLite · Zod · Clerk · Fly.io · Cloudflare · GitHub Actions</div>
   </div>
@@ -224,7 +125,7 @@ WHERE bal &gt;= :n <span class="c">-- 0행이면 롤백</span></code></div>
         <li><b>클라이언트 SDK</b>(TypeScript·무의존성) 주 작성 — Phase A(캔버스 드로잉) + Phase B(이미지 선택), 포인터·궤적 행동 캡처→인코딩, 타입 계약·정책(비활성 타임아웃·한도)·Mock 클라이언트</li>
         <li><b>데모 티켓사이트</b>(React 19·Vite·Tailwind) — 예매·대기열·SDK 통합·GitHub Pages CI/CD</li>
       </ul>
-      <div class="links" style="margin-top:8px"><a class="btn" href="https://github.com/t-curity/captcha-sdk" target="_blank" rel="noopener">SDK 코드 ↗</a></div>
+      <div class="links mt-8"><a class="btn" href="https://github.com/t-curity/captcha-sdk" target="_blank" rel="noopener">SDK 코드 ↗</a></div>
     </div>
   </div>
 </section>

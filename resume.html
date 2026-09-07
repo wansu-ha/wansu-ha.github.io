@@ -18,125 +18,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-<style>
-  :root{
-    --bg:#ffffff; --bg-2:#f7f8fa; --card:#ffffff;
-    --ink:#1a1d23; --text:#3c424b; --muted:#6b7280; --faint:#9aa1ab;
-    --line:#e6e9ee; --line-2:#eef1f5;
-    --accent:#1f3a5f; --accent-soft:#33598a; --accent-bg:#eef2f8;
-    --chip:#eef1f5; --chip-tx:#46505d;
-    --maxw:980px;
-    --sans:"Pretendard","Pretendard Variable",system-ui,sans-serif;
-    --mono:"JetBrains Mono",monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;
-    -webkit-font-smoothing:antialiased}
-  a{color:var(--accent-soft);text-decoration:none}
-  a:hover{text-decoration:underline}
-  ::selection{background:#cfe0f3}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
-  .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--accent);display:block;margin-bottom:20px;font-weight:600}
-
-  /* ── HEADER ── */
-  header.top{background:var(--bg-2);border-bottom:1px solid var(--line);padding:54px 0 44px}
-  .top .back{font-family:var(--mono);font-size:.76rem;color:var(--accent);display:inline-block;margin-bottom:16px}
-  .top .accent-line{width:46px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:24px}
-  .name{font-size:clamp(2rem,5.5vw,2.9rem);font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.05}
-  .name .en{font-weight:500;font-size:.42em;color:var(--faint);letter-spacing:.1em;margin-left:12px}
-  .role{font-size:1.02rem;color:var(--accent);font-weight:600;margin-top:10px}
-  .contact{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-top:20px;
-    display:flex;flex-wrap:wrap;gap:6px 16px}
-  .contact b{color:var(--text);font-weight:500}
-
-  section.block{padding:54px 0;border-bottom:1px solid var(--line)}
-  h2.sec{font-size:1.4rem;color:var(--ink);font-weight:700;margin-bottom:6px}
-  .sec-note{color:var(--faint);font-family:var(--mono);font-size:.72rem;margin-bottom:26px}
-
-  .summary{font-size:1.08rem;line-height:1.75;color:var(--text);max-width:800px}
-  .summary b{color:var(--accent);font-weight:700}
-
-  /* ── STACK ── */
-  .stack{display:grid;grid-template-columns:1fr;gap:13px}
-  .grp.core{border-color:var(--accent)}
-  .grp.core .chips span{background:var(--accent);color:#fff}
-  .grp.fam .chips span{color:var(--muted);background:#eef0f3}
-  .grp{border:1px solid var(--line);border-radius:10px;padding:18px 20px;background:var(--card)}
-  .grp h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--accent);margin-bottom:13px;font-weight:600}
-  .chips{display:flex;flex-wrap:wrap;gap:7px}
-  .chips span{font-family:var(--mono);font-size:.76rem;color:var(--chip-tx);
-    padding:4px 10px;border-radius:5px;background:var(--chip)}
-
-  /* ── CAREER ── */
-  .co{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:5px}
-  .co .nm{font-size:1.22rem;color:var(--ink);font-weight:700}
-  .co .nm .sub{font-family:var(--mono);font-size:.62rem;color:var(--faint);font-weight:400;margin-left:8px;letter-spacing:.04em}
-  .co .pd{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
-  .co-sub{color:var(--muted);font-size:.93rem;margin-bottom:24px}
-
-  .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  .proj{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;
-    background:var(--card);padding:18px 20px;display:flex;flex-direction:column;
-    transition:box-shadow .2s}
-  .proj:hover{box-shadow:0 6px 22px rgba(31,58,95,.08)}
-  .proj h3{font-size:1rem;color:var(--ink);font-weight:700;margin-bottom:8px}
-  .proj .desc{color:var(--muted);font-size:.88rem;margin-bottom:12px}
-  .proj .tech{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
-  .proj .tech span{font-family:var(--mono);font-size:.68rem;color:var(--accent-soft);
-    border:1px solid var(--line);border-radius:4px;padding:2px 7px}
-  .proj ul{list-style:none;margin-top:auto}
-  .proj li{font-size:.85rem;color:var(--text);padding-left:14px;position:relative;margin-bottom:5px}
-  .proj li::before{content:"–";position:absolute;left:0;color:var(--accent-soft)}
-
-  /* ── KOSMOGRAM BANNER ── */
-  .ksbanner{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--accent-bg);
-    display:grid;grid-template-columns:1.1fr 1fr}
-  .ksbanner .txt{padding:28px 30px}
-  .ksbanner .badge{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
-    color:#2f7d4f;background:#e3f3ea;border-radius:100px;padding:3px 11px;display:inline-block;margin-bottom:14px;font-weight:600}
-  .ksbanner h3{font-size:1.4rem;color:var(--ink);font-weight:800;margin-bottom:8px;letter-spacing:.01em}
-  .ksbanner p{color:var(--text);font-size:.92rem;margin-bottom:14px}
-  .ksbanner .ks-tech{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-bottom:18px}
-  .ksbanner .links{display:flex;gap:10px;flex-wrap:wrap}
-  .btn{font-family:var(--mono);font-size:.78rem;padding:10px 18px;border-radius:6px;
-    border:1px solid var(--accent);color:var(--accent);background:transparent;transition:.18s}
-  .btn:hover{text-decoration:none;background:var(--accent);color:#fff}
-  .btn.primary{background:var(--accent);color:#fff}
-  .btn.primary:hover{background:var(--accent-soft)}
-  .ksbanner .shot{background:#0b0805 center/cover no-repeat;min-height:210px;border-left:1px solid var(--line)}
-
-  /* ── PAPERS / LISTS ── */
-  .paper{border-left:3px solid var(--line);padding:2px 0 2px 16px;margin-bottom:18px}
-  .paper .pt{color:var(--ink);font-size:.98rem;font-weight:600;margin-bottom:3px}
-  .paper .pm{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
-
-  .two{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
-  .rowlist{list-style:none}
-  .rowlist li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;
-    border-bottom:1px solid var(--line-2);font-size:.92rem}
-  .rowlist li:last-child{border-bottom:none}
-  .rowlist .l{color:var(--text)}
-  .rowlist .r{font-family:var(--mono);font-size:.76rem;color:var(--muted);text-align:right;flex:none}
-
-  footer{padding:40px 0 60px;text-align:center;color:var(--faint);font-family:var(--mono);font-size:.74rem}
-
-  @media(max-width:720px){
-    .stack,.projects,.two{grid-template-columns:1fr}
-    .ksbanner{grid-template-columns:1fr}
-    .ksbanner .shot{min-height:150px;border-left:none;border-top:1px solid var(--line)}
-    section.block{padding:40px 0}
-  }
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  @media print{
-    header.top,.ksbanner{background:#fff}
-    .proj,.grp,.ksbanner{box-shadow:none}
-    section.block{padding:24px 0}
-  }
-</style>
+<link rel="stylesheet" href="./assets/css/tokens.css" />
+<link rel="stylesheet" href="./assets/css/base.css" />
+<link rel="stylesheet" href="./assets/css/resume.css" />
 </head>
 <body>
 
@@ -159,7 +43,7 @@
 <section class="block">
   <div class="wrap">
     <span class="eyebrow">Summary</span>
-    <p class="summary"><b style="color:var(--accent)">전국 17개 병원이 쓰는 의료 EMR의 백엔드와 시스템 통합을 4년 반 맡아 왔다.</b> 공공기관 연동, 망분리, 장애 대응처럼 안정성이 중요한 일을 주로 다뤘고, 최근에는 원격 테스트 플랫폼의 실시간(WebRTC)·데스크톱 기능과 React·Node 웹게임 <b>Kosmogram</b>(기획부터 배포·운영까지 혼자 출시)을 만들었다. 컴퓨터그래픽스·VR 석사(IEEE 논문) 배경으로 게임 수학도 다룬다. 추측보다 측정으로 확인하고, 문제는 원인까지 파고들어 해결한다.</p>
+    <p class="summary"><b>전국 17개 병원이 쓰는 의료 EMR의 백엔드와 시스템 통합을 4년 반 맡아 왔다.</b> 공공기관 연동, 망분리, 장애 대응처럼 안정성이 중요한 일을 주로 다뤘고, 최근에는 원격 테스트 플랫폼의 실시간(WebRTC)·데스크톱 기능과 React·Node 웹게임 <b>Kosmogram</b>(기획부터 배포·운영까지 혼자 출시)을 만들었다. 컴퓨터그래픽스·VR 석사(IEEE 논문) 배경으로 게임 수학도 다룬다. 추측보다 측정으로 확인하고, 문제는 원인까지 파고들어 해결한다.</p>
   </div>
 </section>
 
@@ -185,7 +69,7 @@
 
     <div class="co">
       <span class="nm">앱테스트에이아이 <span class="sub">AppTest.ai</span></span>
-      <span class="pd">2026.01 – 2026.04 <span style="color:var(--faint);font-size:.85em">(약 3개월)</span></span>
+      <span class="pd">2026.01 – 2026.04 <span class="dim">(약 3개월)</span></span>
     </div>
     <p class="co-sub">카카오클라우드 AIaaS 마스터 클래스 수료 전 조기 입사. 원격 테스트 플랫폼 ReX(Windows 호스트 에이전트)의 데스크톱·WebRTC 기능과 고객사 환경 구축을 담당. (C# .NET)</p>
 
@@ -220,13 +104,13 @@
         <div class="tech"><span>C# .NET</span><span>Chrome 프로필</span></div>
         <ul><li>디바이스 임대 경계(회수·준비)에서 브라우저 세션 데이터(멀티 프로필·Local State·Secure Preferences) 정리</li></ul></article>
     </div>
-    <p class="co-sub" style="margin-top:18px">고객 대면 경험 — CJ올리브네트웍스 테스트 PC 다수 설치·세팅, 교보증권 출장(ReX 설치, 보안 권한 협의, 원격 트러블슈팅).</p>
+    <p class="co-sub mt-18">고객 대면 경험 — CJ올리브네트웍스 테스트 PC 다수 설치·세팅, 교보증권 출장(ReX 설치, 보안 권한 협의, 원격 트러블슈팅).</p>
 
-    <div class="co" style="margin-top:40px">
+    <div class="co mt-40">
       <span class="nm">이지케어텍 (주)</span>
       <span class="pd">2020.12 – 2025.06 · 책임 · 정규직</span>
     </div>
-    <p class="co-sub">전국 17개 병원이 쓰는 EMR 클라우드의 기능 개발·운영. 공공기관·협력업체 연동, 로컬 웹서버·배포·장애 대응 등 시스템 통합 전반을 담당. (C# .NET 백엔드 중심) · <a href="./portfolio.html#easycaretech" style="font-family:var(--mono);font-size:.82rem">시스템 개념도 →</a></p>
+    <p class="co-sub">전국 17개 병원이 쓰는 EMR 클라우드의 기능 개발·운영. 공공기관·협력업체 연동, 로컬 웹서버·배포·장애 대응 등 시스템 통합 전반을 담당. (C# .NET 백엔드 중심) · <a class="link-mono" href="./portfolio.html#easycaretech">시스템 개념도 →</a></p>
 
     <div class="projects">
       <article class="proj"><h3>Edge & Next — EMR 클라우드</h3>
@@ -285,8 +169,8 @@
       <div class="txt">
         <span class="badge">● Live · 서비스 중</span>
         <h3>Kosmogram</h3>
-        <p>노노그램을 풀어 자기 영지를 가꾸는 협력 모자이크 웹게임. 기획·설계·프론트·백엔드·인프라·운영을 직접 맡아 만들고 배포했다. 노노그램 풀이 엔진, 토러스 무한 월드, 이중 통화 경제 등 알고리즘·게임 수학·동시성까지 다뤘다. <b style="color:var(--accent)">기획·아키텍처·기술 선택은 직접 결정하고, 세부 구현은 AI 페어로 가속했다.</b></p>
-        <div class="ks-tech" style="color:var(--accent);margin-bottom:7px;font-weight:600">테스트 133 · Prisma 27 모델 · API 라우트 15 · ~55,000 LOC · 라이브<span style="color:var(--muted);font-weight:400">(2026.06 기준)</span></div>
+        <p>노노그램을 풀어 자기 영지를 가꾸는 협력 모자이크 웹게임. 기획·설계·프론트·백엔드·인프라·운영을 직접 맡아 만들고 배포했다. 노노그램 풀이 엔진, 토러스 무한 월드, 이중 통화 경제 등 알고리즘·게임 수학·동시성까지 다뤘다. <b>기획·아키텍처·기술 선택은 직접 결정하고, 세부 구현은 AI 페어로 가속했다.</b></p>
+        <div class="ks-tech hi">테스트 133 · Prisma 27 모델 · API 라우트 15 · ~55,000 LOC · 라이브<span class="asof">(2026.06 기준)</span></div>
         <div class="ks-tech">React 18 · SVG/Canvas 렌더 · Fastify · Prisma · SQLite · Fly.io · Cloudflare · GitHub Actions</div>
         <div class="links">
           <a class="btn primary" href="./portfolio.html#kosmogram">프로젝트 상세 →</a>
@@ -302,12 +186,12 @@
 <section class="block">
   <div class="wrap">
     <span class="eyebrow">Team Project</span>
-    <div class="projects" style="margin-top:18px">
+    <div class="projects mt-18">
       <article class="proj">
-        <h3>T-Curity — 티켓팅 봇 방지 2-Phase CAPTCHA <span style="font-weight:400;color:var(--muted);font-size:.78em">· 카카오클라우드 AIaaS 마스터 클래스 · 2026</span></h3>
-        <p class="desc">티켓팅 매크로·봇을 막는 행동 기반 2단계 CAPTCHA. <b style="color:var(--accent)">전체 구조 설계를 주도</b>하고, 캔버스 드로잉·이미지 선택의 포인터·궤적 행동을 캡처·인코딩해 서버 간(S2S) 검증으로 넘기는 "프론트 비신뢰" 모델에서 <b style="color:var(--accent)">클라이언트 SDK와 데모 사이트를 직접 구현</b>했다. (백엔드·AI 모델은 팀원)</p>
+        <h3>T-Curity — 티켓팅 봇 방지 2-Phase CAPTCHA <span class="h3-note">· 카카오클라우드 AIaaS 마스터 클래스 · 2026</span></h3>
+        <p class="desc">티켓팅 매크로·봇을 막는 행동 기반 2단계 CAPTCHA. <b>전체 구조 설계를 주도</b>하고, 캔버스 드로잉·이미지 선택의 포인터·궤적 행동을 캡처·인코딩해 서버 간(S2S) 검증으로 넘기는 "프론트 비신뢰" 모델에서 <b>클라이언트 SDK와 데모 사이트를 직접 구현</b>했다. (백엔드·AI 모델은 팀원)</p>
         <div class="tech"><span>TypeScript</span><span>무의존성 SDK</span><span>React 19</span><span>Canvas·Pointer Events</span><span>Vite</span><span>GitHub Actions</span></div>
-        <div class="links" style="margin-top:12px">
+        <div class="links mt-12">
           <a class="btn" href="https://github.com/t-curity/captcha-sdk" target="_blank" rel="noopener">SDK 코드 ↗</a>
           <a class="btn" href="./portfolio.html#tcurity">프로젝트 상세 →</a>
         </div>
@@ -335,8 +219,8 @@
       <div class="pm">한국컴퓨터그래픽스학회(KCGS) · <a href="https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE07299434" target="_blank" rel="noopener">DBpia</a></div>
     </div>
 
-    <h2 class="sec" style="margin-top:34px">대학원·학부 프로젝트</h2>
-    <div class="projects" style="margin-top:18px">
+    <h2 class="sec mt-34">대학원·학부 프로젝트</h2>
+    <div class="projects mt-18">
       <article class="proj"><h3>가상현실 이동 서포트</h3>
         <p class="desc">VR에서 자유롭고 편안한 이동을 돕는 기술(redirected walking).</p>
         <div class="tech"><span>Unity</span><span>HTC Vive</span><span>C# .NET</span></div></article>
@@ -347,7 +231,7 @@
         <p class="desc">지도 위치의 기상 정보·근시일 예보를 보여주는 도구.</p>
         <div class="tech"><span>HTML5</span><span>JavaScript</span><span>공공데이터 API</span><span>Daum Map</span></div></article>
     </div>
-    <p class="sec-note" style="margin-top:14px">학창 시절(고교~학부)부터 테트리스·뿌요뿌요·지뢰찾기 등을 직접 만들며 프로그래밍을 시작했다.</p>
+    <p class="sec-note mt-14">학창 시절(고교~학부)부터 테트리스·뿌요뿌요·지뢰찾기 등을 직접 만들며 프로그래밍을 시작했다.</p>
   </div>
 </section>
 
@@ -357,17 +241,17 @@
     <span class="eyebrow">Education & Certifications</span>
     <div class="two">
       <div>
-        <h2 class="sec" style="font-size:1.12rem">학력 · 교육</h2>
-        <ul class="rowlist" style="margin-top:14px">
+        <h2 class="sec sm">학력 · 교육</h2>
+        <ul class="rowlist mt-14">
           <li><span class="l">카카오클라우드 AIaaS 마스터 클래스 2기 · 스나이퍼팩토리 (27주)</span><span class="r">2025.08 – 2026.02</span></li>
           <li><span class="l">광운대학교 대학원 컴퓨터과학과 (석사)</span><span class="r">2017.08 – 2020.02</span></li>
-          <li><span class="l">광운대학교 컴퓨터소프트웨어학과 (학사) <span style="color:var(--faint);font-size:.85em">· 재학 중 군 복무</span></span><span class="r">2009.03 – 2017.08</span></li>
+          <li><span class="l">광운대학교 컴퓨터소프트웨어학과 (학사) <span class="dim">· 재학 중 군 복무</span></span><span class="r">2009.03 – 2017.08</span></li>
           <li><span class="l">서울광운전자공업고등학교 컴퓨터전자과</span><span class="r">2006.03 – 2009.02</span></li>
         </ul>
       </div>
       <div>
-        <h2 class="sec" style="font-size:1.12rem">자격 · 병역</h2>
-        <ul class="rowlist" style="margin-top:14px">
+        <h2 class="sec sm">자격 · 병역</h2>
+        <ul class="rowlist mt-14">
           <li><span class="l">정보처리산업기사 · 한국산업인력공단</span><span class="r">2012.11</span></li>
           <li><span class="l">운전면허 2종 보통</span><span class="r">2014.10</span></li>
           <li><span class="l">공군 보안체계관리 (군필)</span><span class="r">2011.04 – 2013.04</span></li>

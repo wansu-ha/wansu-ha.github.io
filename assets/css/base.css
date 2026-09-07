@@ -1,0 +1,52 @@
+/* ═══════════════════════════════════════════════════════════
+   이력서 · 포트폴리오 공통 스타일
+   (두 페이지에서 완전히 동일했던 규칙만 모았습니다.)
+   페이지마다 값이 다른 항목은 resume.css / portfolio.css 위쪽
+   "이 페이지 고유값" 블록에서 덮어씁니다.
+   ═══════════════════════════════════════════════════════════ */
+
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;
+  -webkit-font-smoothing:antialiased}
+
+a{color:var(--accent-soft);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:#cfe0f3}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+
+/* 본문 폭 — --maxw 는 각 페이지 CSS에서 지정 */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+/* ── 헤더 ── */
+header.top{background:var(--bg-2);border-bottom:1px solid var(--line);padding:54px 0 44px}
+.back{font-family:var(--mono);font-size:.76rem;color:var(--accent);display:inline-block;margin-bottom:16px}
+.accent-line{width:46px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:24px}
+
+/* ── 섹션 라벨 (SUMMARY, EXPERIENCE …) ── */
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);display:block;margin-bottom:20px;font-weight:600}
+
+/* ── 버튼 ── */
+.btn{font-family:var(--mono);font-size:.78rem;padding:10px 18px;border-radius:6px;
+  border:1px solid var(--accent);color:var(--accent);background:transparent;transition:.18s}
+.btn:hover{text-decoration:none;background:var(--accent);color:#fff}
+.btn.primary{background:var(--accent);color:#fff}
+
+/* ── 푸터 ── */
+footer{padding:40px 0 60px;text-align:center;color:var(--faint);font-family:var(--mono);font-size:.74rem}
+
+/* ── 글자 보조 ── */
+.dim{color:var(--faint);font-size:.85em}        /* (약 3개월) 같은 흐린 부연 */
+.link-mono{font-family:var(--mono);font-size:.82rem}
+
+/* ── 간격 보조 ──
+   본문 사이에 있던 style="margin-top:…" 을 대체합니다.
+   내용을 편집할 때는 신경 쓰지 말고 그대로 두면 됩니다. */
+.mt-8{margin-top:8px}
+.mt-12{margin-top:12px}
+.mt-14{margin-top:14px}
+.mt-18{margin-top:18px}
+.mt-34{margin-top:34px}
+.mt-40{margin-top:40px}

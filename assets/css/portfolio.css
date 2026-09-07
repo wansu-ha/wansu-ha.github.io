@@ -1,0 +1,91 @@
+/* ═══════════════════════════════════════════════════════════
+   포트폴리오 페이지 전용 스타일
+   공통 규칙은 tokens.css → base.css 에 있습니다.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 이 페이지 고유값 (base.css 값을 덮어씀) ── */
+:root{--maxw:1000px}
+header.top{padding:48px 0 38px}
+.back{margin-bottom:18px}
+.accent-line{margin-bottom:20px}
+.eyebrow{margin-bottom:8px}
+footer{padding:42px 0 60px}
+
+/* ── 헤더 ── */
+h1{font-size:clamp(1.8rem,5vw,2.5rem);font-weight:800;color:var(--ink);letter-spacing:-.01em}
+header .sub{color:var(--muted);margin-top:12px}
+.toc{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.toc a{font-family:var(--mono);font-size:.78rem;border:1px solid var(--line);border-radius:6px;padding:7px 14px;color:var(--accent)}
+.toc a:hover{text-decoration:none;background:var(--accent);color:#fff}
+
+/* ── 프로젝트 섹션 ── */
+section.proj{padding:54px 0;border-bottom:1px solid var(--line)}
+.phead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.phead-right{text-align:right}
+h2.sec{font-size:1.7rem;color:var(--ink);font-weight:800;letter-spacing:-.01em}
+.badge{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#2f7d4f;background:#e3f3ea;border-radius:100px;padding:4px 11px;display:inline-block;margin-bottom:10px;font-weight:600}
+.role-line{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin-top:8px}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.lead{font-size:1.05rem;color:var(--text);margin:18px 0 8px;max-width:760px}
+
+/* ── 스크린샷 갤러리 ── */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:22px 0}
+.shot{position:relative;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#0b0805}
+.shot img{display:block;width:100%;height:100%;object-fit:cover}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;font-family:var(--mono);font-size:.66rem;color:#fff;padding:16px 12px 9px;background:linear-gradient(transparent,rgba(8,5,3,.9))}
+.shot.big{grid-column:span 4;aspect-ratio:16/10}
+.shot.tall{grid-column:span 2}
+.shot.third{grid-column:span 2;aspect-ratio:4/3}
+.shot.wide{grid-column:span 6;aspect-ratio:12/5;background:#060b0c}
+.shot.wide img{object-fit:contain}
+
+/* ── 핵심 도전 카드 ── */
+.chal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+.card{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;background:var(--card);padding:18px 18px 16px}
+.card h3{font-size:1rem;color:var(--ink);font-weight:700;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.88rem;margin-bottom:12px}
+.card code{display:block;font-family:var(--mono);font-size:.74rem;color:var(--accent);background:#f4f6f8;border:1px solid var(--line);border-radius:5px;padding:9px 11px;white-space:pre-wrap;line-height:1.5}
+.card code .c{color:var(--faint)}
+
+/* ── 지표 줄 ── */
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.meta-row .m{font-family:var(--mono);font-size:.74rem;background:var(--accent-bg);color:var(--accent);border-radius:6px;padding:7px 12px;font-weight:600}
+.meta-row .m.live{background:#e3f3ea;color:#2f7d4f}
+.stack-line{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:14px}
+
+/* ── 시스템 개념도 ── */
+.disc{font-family:var(--mono);font-size:.72rem;color:var(--faint);margin-top:10px}
+.legend{font-family:var(--mono);font-size:.74rem;color:var(--accent);margin-top:6px}
+.dgroup{margin-top:30px}
+.dgroup h3{font-size:1.12rem;color:var(--ink);font-weight:700}
+.dgroup .ddesc{color:var(--muted);font-size:.92rem;margin-top:4px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 16px}
+.node{border:1px solid var(--line);border-radius:9px;padding:12px 14px;background:#fff;text-align:center;flex:0 0 auto;min-width:104px}
+.node.key{border-color:var(--accent);border-width:2px;background:var(--accent-bg)}
+.node .t{font-weight:700;color:var(--ink);font-size:.88rem;display:block}
+.node .s{font-family:var(--mono);font-size:.63rem;color:var(--muted);margin-top:5px;display:block;line-height:1.4}
+.arrow{color:var(--accent);font-size:1.02rem;flex:0 0 auto;font-weight:700}
+.arrow.bi{font-size:.8rem}
+.pts{list-style:none;margin-top:4px}
+.pts li{font-size:.89rem;color:var(--text);padding-left:15px;position:relative;margin-bottom:5px}
+.pts li::before{content:"–";position:absolute;left:0;color:var(--accent-soft)}
+.pts li b{color:var(--accent)}
+.note{margin-top:14px;border-left:3px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:12px 16px;font-size:.89rem;color:var(--text)}
+.note b{color:var(--accent)}
+
+/* ── 반응형 · 인쇄 ── */
+@media(max-width:760px){
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .shot.big,.shot.tall,.shot.third{grid-column:span 2;aspect-ratio:16/10}
+  .shot.wide{grid-column:span 2}
+  .chal{grid-template-columns:1fr}
+  section.proj{padding:40px 0}
+}
+@media(max-width:600px){
+  .flow{flex-direction:column;align-items:stretch}
+  .node{min-width:0}
+  .arrow{align-self:center}
+  .arrow:not(.bi){transform:rotate(90deg)}
+  .arrow.bi{font-size:.7rem}
+}
+@media print{header.top,.node.key,.note,.meta-row .m{background:#fff}}

@@ -1,0 +1,37 @@
+/* ═══════════════════════════════════════════════════════════
+   디자인 토큰 — 색과 글꼴은 전부 여기서 관리합니다.
+   세 페이지(index·resume·portfolio)가 모두 이 파일을 씁니다.
+   색을 바꾸고 싶으면 이 파일만 고치면 됩니다.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  /* 배경 */
+  --bg:#ffffff;      /* 기본 배경 */
+  --bg-2:#f7f8fa;    /* 헤더 배경 */
+  --card:#ffffff;    /* 카드 배경 */
+
+  /* 글자 — 진한 순서 */
+  --ink:#1a1d23;     /* 제목 */
+  --text:#3c424b;    /* 본문 */
+  --muted:#6b7280;   /* 보조 설명 */
+  --faint:#9aa1ab;   /* 가장 흐린 글씨 */
+
+  /* 선 */
+  --line:#e6e9ee;
+  --line-2:#eef1f5;
+
+  /* 강조 — 남색 계열 */
+  --accent:#1f3a5f;       /* 메인 */
+  --accent-soft:#33598a;  /* 링크 */
+  --accent-bg:#eef2f8;    /* 강조 배경 */
+
+  /* 기술 칩 */
+  --chip:#eef1f5;
+  --chip-tx:#46505d;
+
+  /* 글꼴 */
+  --sans:"Pretendard","Pretendard Variable",system-ui,sans-serif;
+  --mono:"JetBrains Mono",monospace;
+}
+
+/* 리셋 */
+*{box-sizing:border-box;margin:0;padding:0}
