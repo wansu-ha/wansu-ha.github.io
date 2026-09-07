@@ -1,0 +1,278 @@
+# ═══════════════════════════════════════════════════════════════════
+#  이력서 내용
+#
+#  이 파일만 고치면 이력서 페이지가 바뀝니다. HTML을 열 필요가 없습니다.
+#
+#  ▸ 항목을 추가하려면 같은 모양의 묶음을 복사해 글자만 바꾸세요.
+#  ▸ 순서를 바꾸려면 묶음을 통째로 위아래로 옮기면 됩니다.
+#  ▸ 문장 안에서 굵게 강조할 때만 <b>…</b> 를 씁니다.
+#  ▸ 값에 작은따옴표(')가 들어가면 "큰따옴표"로 감싸세요.
+#  ▸ 들여쓰기는 공백만 씁니다(탭 금지). 앞 항목과 칸을 맞추세요.
+# ═══════════════════════════════════════════════════════════════════
+
+
+# ── 한 줄 요약 (Summary) ──────────────────────────────────────────
+summary: '<b>전국 17개 병원이 쓰는 의료 EMR의 백엔드와 시스템 통합을 4년 반 맡아 왔다.</b> 공공기관 연동, 망분리, 장애 대응처럼 안정성이 중요한 일을 주로 다뤘고, 최근에는 원격 테스트 플랫폼의 실시간(WebRTC)·데스크톱 기능과 React·Node 웹게임 <b>Kosmogram</b>(기획부터 배포·운영까지 혼자 출시)을 만들었다. 컴퓨터그래픽스·VR 석사(IEEE 논문) 배경으로 게임 수학도 다룬다. 추측보다 측정으로 확인하고, 문제는 원인까지 파고들어 해결한다.'
+
+
+# ── 기술 스택 (Tech Stack) ────────────────────────────────────────
+#  variant: core = 남색 채움 / fam = 흐린 회색 / 없으면 기본
+stack:
+  - label: '주력 · Core'
+    variant: core
+    items:
+      - 'C# / .NET'
+      - 'TypeScript'
+      - 'React'
+      - 'Node.js'
+
+  - label: '능숙 · Proficient'
+    items:
+      - 'Fastify'
+      - 'Prisma'
+      - 'SVG/Canvas 렌더'
+      - 'WPF (XAML)'
+      - 'Ember.js'
+      - 'MySQL'
+      - 'SQLite'
+      - 'REST API'
+      - 'Fly.io'
+      - 'Cloudflare'
+      - 'GitHub Actions'
+      - 'IIS'
+      - 'Git'
+
+  - label: '경험 · Familiar'
+    variant: fam
+    items:
+      - 'C++'
+      - 'C'
+      - 'Java'
+      - 'Python'
+      - 'WebRTC'
+      - 'AWS'
+      - 'Unity'
+      - 'Unreal'
+      - 'HTC Vive'
+      - 'FastAPI'
+      - 'Flask'
+      - 'Windows Graphics Capture'
+      - 'Win32 API'
+      - 'Mirth Connect'
+      - 'Kibana'
+      - 'Grafana'
+      - 'JMeter'
+
+
+# ── 경력 (Experience) ─────────────────────────────────────────────
+#  company_en   회사명 옆 작은 영문 (없으면 줄째로 지우기)
+#  period_note  기간 옆 흐린 부연  예: '(약 3개월)'
+#  desc_link    설명 끝에 붙는 링크
+#  note         카드 아래 덧붙이는 문장
+experience:
+  - company: '앱테스트에이아이'
+    company_en: 'AppTest.ai'
+    period: '2026.01 – 2026.04'
+    period_note: '(약 3개월)'
+    desc: '카카오클라우드 AIaaS 마스터 클래스 수료 전 조기 입사. 원격 테스트 플랫폼 ReX(Windows 호스트 에이전트)의 데스크톱·WebRTC 기능과 고객사 환경 구축을 담당. (C# .NET)'
+    projects:
+      - title: 'ReX 자동 업데이트·배포'
+        desc: '에이전트~디바이스 서버 자동 업데이트·배포 파이프라인.'
+        tech: ['C# .NET', 'Python', 'WPF', 'SparkleUpdater', 'Inno Setup']
+        points:
+          - '에이전트–디바이스 서버를 WebSocket(update_completed)으로 연동, 디바이스 상태(점유→가용)를 전환하는 분산 상태머신을 C#·Python 양쪽 구현(버전 무변경 등 엣지 포함)'
+          - '업데이터를 진행률 GUI로 재설계, 코드 서명 자동화(SafeNet 토큰+DigiCert) 빌드 통합 + 운영 가이드 문서화'
+          - '인스톨러 실전 안정화(실행 파일 잠김 restartreplace·서비스 등록 순서)·다국어 분리, v1.7.6.x 릴리스 18회 주도 운영'
+
+      - title: '미러링·실시간 통신'
+        desc: '원격 미러링·화면 캡처·WebRTC 안정화.'
+        tech: ['WebRTC ICE', 'WGC', 'C# .NET']
+        points:
+          - '캡처 제외 플래그 동적 토글로 미러링 회귀 수정, ICE 실패 추적 → 방화벽 차단 규칙 원인 발견'
+          - '성능 캡처 타임아웃의 원인을 PerformanceCounter 첫 호출 지연으로 밝혀내 프리웜업으로 제거'
+          - 'WebRTC 시그널링 핸드셰이크 결함 연결 복구·미러링 TOCTOU 동시성 수정'
+          - 'WGC Win10/11 화질 정량 측정 — 개선안 검증 PSNR +12dB·OCR +47%'
+
+      - title: '클립보드 동기화'
+        desc: '원격–로컬 양방향 클립보드 동기화.'
+        tech: ['C# .NET', 'WebRTC', 'DataChannel', 'Win32 API']
+        points:
+          - 'WebRTC DataChannel 양방향, SCTP 청킹·Echo 방지'
+          - '역방향 유출 케이스 사전 식별·보고'
+
+      - title: '데스크톱 UI/UX'
+        desc: '테스트 수행 UI 전반 개선·디자인 시스템화.'
+        tech: ['WPF', 'XAML']
+        points:
+          - '사용성 개선 Epic을 직접 발의해 주도, 한 주 5개 마일스톤(스펙→구현→MR) 완수'
+          - 'OS 언어 기반 한/영 i18n 자동 분기(앱·인스톨러·업데이터 3레이어)'
+          - '다크 테마 디자인 시스템(색상/브러시 리소스 통합)·멀티모니터 DPI(PerMonitorV2) 좌표 정합'
+          - 'Hover 가이드·레코딩 토스트 UX 신규 설계, 텍스트 입력 팝업 재작성(포커스 확보·키 입력 정확도)'
+
+      - title: '디버깅·안정화'
+        desc: '재현 어려운 데스크톱 버그를 근본원인까지 추적.'
+        tech: ['C# .NET', '동시성', 'Win32']
+        points:
+          - '크로스스레드 접근으로 기능 전체가 불능이던 문제를 원인까지 추적해 수정'
+          - 'Named Pipe 인스턴스 충돌·합성 입력 오인식·TOCTOU 등 경합/타이밍 버그 다수 수정'
+          - 'WebSocket 무한 재연결·런처 실패·스테이징 간헐 다운 등 안정성 결함을 직접 찾아 이슈로 등록'
+
+      - title: '브라우저 세션 격리'
+        desc: '공유 테스트 기기의 사용자 간 세션 누출 차단.'
+        tech: ['C# .NET', 'Chrome 프로필']
+        points:
+          - '디바이스 임대 경계(회수·준비)에서 브라우저 세션 데이터(멀티 프로필·Local State·Secure Preferences) 정리'
+    note: '고객 대면 경험 — CJ올리브네트웍스 테스트 PC 다수 설치·세팅, 교보증권 출장(ReX 설치, 보안 권한 협의, 원격 트러블슈팅).'
+
+  - company: '이지케어텍 (주)'
+    period: '2020.12 – 2025.06 · 책임 · 정규직'
+    desc: '전국 17개 병원이 쓰는 EMR 클라우드의 기능 개발·운영. 공공기관·협력업체 연동, 로컬 웹서버·배포·장애 대응 등 시스템 통합 전반을 담당. (C# .NET 백엔드 중심)'
+    desc_link: { text: '시스템 개념도 →', href: './portfolio.html#easycaretech' }
+    projects:
+      - title: 'Edge & Next — EMR 클라우드'
+        desc: 'EMR 클라우드 기능 개발 및 운영.'
+        tech: ['Ember', 'JavaScript', 'C# .NET', 'REST API', 'MySQL']
+        points:
+          - '직원 계정 로그인·메뉴 접근 권한 관리'
+          - '환자 접근 권한 확인 및 접근 사유 기록·보관'
+
+      - title: '협력업체 프록시 서버'
+        desc: '협력업체 통신용 프록시 서버 개발·운영.'
+        tech: ['C# .NET', 'REST API', 'MySQL', 'IIS', 'Mirth Connect']
+        points:
+          - '망분리 환경 설계·구현, 방화벽 점검·오픈 신청'
+          - '진료대기 전광판 Mirth 연동, 토큰 발급 관리'
+          - 'REST API 스트레스 테스트·로그 분석'
+
+      - title: '공공기관 프록시 서버'
+        desc: '공공기관 통신용 프록시 서버 개발·운영.'
+        tech: ['C# .NET', 'REST API', 'WSDL', 'MySQL', 'IIS']
+        points:
+          - '망분리 설계, DUR·HIRA·KICA 등 공공기관 연동·운영'
+          - '공단 자격조회 WSDL·CDC(예방접종) 서비스 연동'
+          - 'KICA 서버 3대 중 2대 장애로 병원 업무 중단 시, 유동 IP 의존으로 장애 서버에 연결되던 것을 원인으로 진단 — 정상 서버 고정 IP 전환으로 임시 복구, 장애 해소 후 롤백'
+
+      - title: '주변기기용 로컬 웹서버'
+        desc: '프론트에서 로컬 프로그램 실행·통신용 로컬 웹서버.'
+        tech: ['C# .NET', 'WebSocket', 'TCP']
+        points:
+          - 'WebSocket·TCP 통신 설계·구현'
+          - 'VAN 결제·사인패드·인증서 로그인·HIRA·구 EMR 연동'
+          - '프린터·메신저·라이브 업데이트 연동'
+
+      - title: '라이브 업데이트'
+        desc: '프로그램 버전 관리·자동 업데이트.'
+        tech: ['WPF (XAML)', 'C# .NET', 'REST API']
+        points:
+          - '자사 프로그램 배포·롤백 관리'
+          - '실행 시 버전·변경 체크 후 자동 업데이트'
+
+      - title: 'Contingency Program'
+        desc: '클라우드 장애 시 데이터 추출·간이 진료 기록 뷰어.'
+        tech: ['WPF (XAML)', 'C# .NET', 'SQLite', 'REST API']
+        points:
+          - '진료 기록 백업(자동·수동), SQLite 추출·암호화'
+          - '기록 확인용 뷰어 개발'
+
+      - title: '병원 메신저'
+        desc: '병원 내·병원 간 소통·자료 공유 메신저.'
+        tech: ['React Native', 'Node.js', 'TypeScript', 'C# .NET']
+        points:
+          - '자사 시스템 연동 로그인 기능 개발'
+
+      - title: '병원 인증서 관리'
+        desc: '인증서 만료 관리·갱신 자동화.'
+        tech: ['C# .NET', 'REST API', 'Telegram Bot API', 'Signgate']
+        points:
+          - '만료 기간 체크 + 텔레그램 알람'
+          - '병원 갱신 요청·인증서 교체'
+
+      - title: '프로그램 서명'
+        desc: '자사 프로그램 코드 서명 관리.'
+        tech: ['CodeSign']
+        points:
+          - '서명 툴을 이용한 서명·배포'
+
+
+# ── 개인 프로젝트 배너 (Personal Project) ─────────────────────────
+kosmogram:
+  badge: '● Live · 서비스 중'
+  title: 'Kosmogram'
+  desc: '노노그램을 풀어 자기 영지를 가꾸는 협력 모자이크 웹게임. 기획·설계·프론트·백엔드·인프라·운영을 직접 맡아 만들고 배포했다. 노노그램 풀이 엔진, 토러스 무한 월드, 이중 통화 경제 등 알고리즘·게임 수학·동시성까지 다뤘다. <b>기획·아키텍처·기술 선택은 직접 결정하고, 세부 구현은 AI 페어로 가속했다.</b>'
+  metrics: '테스트 133 · Prisma 27 모델 · API 라우트 15 · ~55,000 LOC · 라이브'
+  metrics_asof: '(2026.06 기준)'
+  tech: 'React 18 · SVG/Canvas 렌더 · Fastify · Prisma · SQLite · Fly.io · Cloudflare · GitHub Actions'
+  image: './assets/02-world.png'
+  links:
+    - { text: '프로젝트 상세 →', href: './portfolio.html#kosmogram', primary: true }
+    - { text: '서비스 바로가기 ↗', href: 'https://kosmogram.io', external: true }
+
+
+# ── 팀 프로젝트 (Team Project) ────────────────────────────────────
+team_projects:
+  - title: 'T-Curity — 티켓팅 봇 방지 2-Phase CAPTCHA'
+    title_note: '· 카카오클라우드 AIaaS 마스터 클래스 · 2026'
+    desc: '티켓팅 매크로·봇을 막는 행동 기반 2단계 CAPTCHA. <b>전체 구조 설계를 주도</b>하고, 캔버스 드로잉·이미지 선택의 포인터·궤적 행동을 캡처·인코딩해 서버 간(S2S) 검증으로 넘기는 "프론트 비신뢰" 모델에서 <b>클라이언트 SDK와 데모 사이트를 직접 구현</b>했다. (백엔드·AI 모델은 팀원)'
+    tech: ['TypeScript', '무의존성 SDK', 'React 19', 'Canvas·Pointer Events', 'Vite', 'GitHub Actions']
+    links:
+      - { text: 'SDK 코드 ↗', href: 'https://github.com/t-curity/captcha-sdk', external: true }
+      - { text: '프로젝트 상세 →', href: './portfolio.html#tcurity' }
+
+
+# ── 논문 (Research) ───────────────────────────────────────────────
+papers_heading: '논문'
+papers_note: '광운대학교 대학원 · 컴퓨터그래픽스 / VR'
+papers:
+  - title: 'Automatic Control of Virtual Mirrors for Precise 3D Manipulation in VR'
+    meta: 'IEEE Access · 2020 · 석사 졸업논문 · DOI'
+    link: { text: '10.1109/access.2020.3019012', href: 'https://doi.org/10.1109/access.2020.3019012' }
+  - title: '운고계 관측자료의 3차원 시각화 — 기상 데이터 시간대별 구름 애니메이션'
+    meta: '한국컴퓨터그래픽스학회(KCGS) · DOI'
+    link: { text: '10.15701/kcgs.2018.24.2.21', href: 'https://doi.org/10.15701/kcgs.2018.24.2.21' }
+  - title: '방향전환 걷기를 위한 왜곡률의 범위 평가 — VR 공간 활용 redirected walking'
+    meta: '한국컴퓨터그래픽스학회(KCGS) ·'
+    link: { text: 'DBpia', href: 'https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE07299434' }
+
+
+# ── 대학원·학부 프로젝트 ──────────────────────────────────────────
+academic_heading: '대학원·학부 프로젝트'
+academic_projects:
+  - title: '가상현실 이동 서포트'
+    desc: 'VR에서 자유롭고 편안한 이동을 돕는 기술(redirected walking).'
+    tech: ['Unity', 'HTC Vive', 'C# .NET']
+  - title: '웹 스크래치'
+    desc: '브라우저에서 퍼즐 조립하듯 배우는 프로그래밍 학습 도구.'
+    tech: ['HTML5', 'JavaScript', 'jQuery']
+  - title: '기상 지도'
+    desc: '지도 위치의 기상 정보·근시일 예보를 보여주는 도구.'
+    tech: ['HTML5', 'JavaScript', '공공데이터 API', 'Daum Map']
+academic_note: '학창 시절(고교~학부)부터 테트리스·뿌요뿌요·지뢰찾기 등을 직접 만들며 프로그래밍을 시작했다.'
+
+
+# ── 학력 · 자격 (Education & Certifications) ──────────────────────
+#  왼쪽/오른쪽 두 칸으로 나란히 표시됩니다.
+columns:
+  - heading: '학력 · 교육'
+    rows:
+      - text: '카카오클라우드 AIaaS 마스터 클래스 2기 · 스나이퍼팩토리 (27주)'
+        when: '2025.08 – 2026.02'
+      - text: '광운대학교 대학원 컴퓨터과학과 (석사)'
+        when: '2017.08 – 2020.02'
+      - text: '광운대학교 컴퓨터소프트웨어학과 (학사)'
+        note: '· 재학 중 군 복무'
+        when: '2009.03 – 2017.08'
+      - text: '서울광운전자공업고등학교 컴퓨터전자과'
+        when: '2006.03 – 2009.02'
+
+  - heading: '자격 · 병역'
+    rows:
+      - text: '정보처리산업기사 · 한국산업인력공단'
+        when: '2012.11'
+      - text: '운전면허 2종 보통'
+        when: '2014.10'
+      - text: '공군 보안체계관리 (군필)'
+        when: '2011.04 – 2013.04'
+
+
+# ── 푸터 ─────────────────────────────────────────────────────────
+footer: '하완수 · Full-Stack Developer · hwas2620@gmail.com'

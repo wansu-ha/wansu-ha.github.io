@@ -1,0 +1,23 @@
+{%- comment %}
+  프로젝트 카드 1개.  넘겨받는 값(p)의 항목은 모두 선택입니다:
+    title(필수) · title_note · desc · tech[] · points[] · links[]
+{% endcomment -%}
+{%- assign p = include.p -%}
+      <article class="proj"><h3>{{ p.title }}{% if p.title_note %} <span class="h3-note">{{ p.title_note }}</span>{% endif %}</h3>
+{%- if p.desc %}
+        <p class="desc">{{ p.desc }}</p>
+{%- endif %}
+{%- if p.tech %}
+        <div class="tech">{% for t in p.tech %}<span>{{ t }}</span>{% endfor %}</div>
+{%- endif %}
+{%- if p.points %}
+        <ul>{% for pt in p.points %}<li>{{ pt }}</li>{% endfor %}</ul>
+{%- endif %}
+{%- if p.links %}
+        <div class="links mt-12">
+{%- for l in p.links %}
+          <a class="btn{% if l.primary %} primary{% endif %}" href="{{ l.href }}"{% if l.external %} target="_blank" rel="noopener"{% endif %}>{{ l.text }}</a>
+{%- endfor %}
+        </div>
+{%- endif %}
+      </article>
