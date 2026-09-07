@@ -1,0 +1,15 @@
+# ═══════════════════════════════════════════════════════════
+#  사이트 설정
+#  GitHub Pages 가 이 파일을 보고 Jekyll 로 자동 빌드합니다.
+#  (별도 빌드 도구나 GitHub Actions 없이 push 만 하면 반영됩니다.)
+# ═══════════════════════════════════════════════════════════
+
+url: https://wansu-ha.github.io   # og:url 을 만들 때 쓰는 사이트 주소
+baseurl: ""                       # 사용자 사이트라 하위 경로 없음
+
+# 결과물(_site)에 포함하지 않을 파일
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

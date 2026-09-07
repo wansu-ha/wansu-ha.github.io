@@ -1,0 +1,9 @@
+{%- comment %} 흐름도 한 줄 — 노드 사이에 화살표를 끼워 그린다 {% endcomment -%}
+      <div class="flow">
+{%- for n in include.flow %}
+{%- if n.arrow %}
+        <div class="arrow{% if n.arrow contains '↔' %} bi{% endif %}">{{ n.arrow }}</div>
+{%- endif %}
+        <div class="node{% if n.key %} key{% endif %}"><span class="t">{{ n.t }}</span>{% if n.s %}<span class="s">{{ n.s }}</span>{% endif %}</div>
+{%- endfor %}
+      </div>

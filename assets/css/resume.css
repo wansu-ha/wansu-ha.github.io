@@ -1,0 +1,104 @@
+/* ═══════════════════════════════════════════════════════════
+   이력서 페이지 전용 스타일
+   공통 규칙은 tokens.css → base.css 에 있습니다.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 이 페이지 고유값 ── */
+:root{--maxw:980px}
+.btn.primary:hover{background:var(--accent-soft)}
+
+/* ── 헤더 ── */
+.name{font-size:clamp(2rem,5.5vw,2.9rem);font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.05}
+.name .en{font-weight:500;font-size:.42em;color:var(--faint);letter-spacing:.1em;margin-left:12px}
+.role{font-size:1.02rem;color:var(--accent);font-weight:600;margin-top:10px}
+.contact{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-top:20px;
+  display:flex;flex-wrap:wrap;gap:6px 16px}
+.contact b{color:var(--text);font-weight:500}
+
+/* ── 섹션 ── */
+section.block{padding:54px 0;border-bottom:1px solid var(--line)}
+h2.sec{font-size:1.4rem;color:var(--ink);font-weight:700;margin-bottom:6px}
+h2.sec.sm{font-size:1.12rem}                    /* 학력·자격 소제목 */
+.sec-note{color:var(--faint);font-family:var(--mono);font-size:.72rem;margin-bottom:26px}
+
+/* ── SUMMARY ── */
+.summary{font-size:1.08rem;line-height:1.75;color:var(--text);max-width:800px}
+.summary b{color:var(--accent);font-weight:700}
+
+/* ── STACK ── */
+.stack{display:grid;grid-template-columns:1fr;gap:13px}
+.grp.core{border-color:var(--accent)}
+.grp.core .chips span{background:var(--accent);color:#fff}
+.grp.fam .chips span{color:var(--muted);background:#eef0f3}
+.grp{border:1px solid var(--line);border-radius:10px;padding:18px 20px;background:var(--card)}
+.grp h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:13px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chips span{font-family:var(--mono);font-size:.76rem;color:var(--chip-tx);
+  padding:4px 10px;border-radius:5px;background:var(--chip)}
+
+/* ── CAREER ── */
+.co{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:5px}
+.co .nm{font-size:1.22rem;color:var(--ink);font-weight:700}
+.co .nm .sub{font-family:var(--mono);font-size:.62rem;color:var(--faint);font-weight:400;margin-left:8px;letter-spacing:.04em}
+.co .pd{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.co-sub{color:var(--muted);font-size:.93rem;margin-bottom:24px}
+
+/* ── 프로젝트 카드 ── */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.proj{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;
+  background:var(--card);padding:18px 20px;display:flex;flex-direction:column;
+  transition:box-shadow .2s}
+.proj:hover{box-shadow:0 6px 22px rgba(31,58,95,.08)}
+.proj h3{font-size:1rem;color:var(--ink);font-weight:700;margin-bottom:8px}
+.proj h3 .h3-note{font-weight:400;color:var(--muted);font-size:.78em}  /* 제목 뒤 소속·연도 */
+.proj .desc{color:var(--muted);font-size:.88rem;margin-bottom:12px}
+.proj .desc b{color:var(--accent)}
+.proj .tech{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.proj .tech span{font-family:var(--mono);font-size:.68rem;color:var(--accent-soft);
+  border:1px solid var(--line);border-radius:4px;padding:2px 7px}
+.proj ul{list-style:none;margin-top:auto}
+.proj li{font-size:.85rem;color:var(--text);padding-left:14px;position:relative;margin-bottom:5px}
+.proj li::before{content:"–";position:absolute;left:0;color:var(--accent-soft)}
+
+/* ── KOSMOGRAM 배너 ── */
+.ksbanner{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--accent-bg);
+  display:grid;grid-template-columns:1.1fr 1fr}
+.ksbanner .txt{padding:28px 30px}
+.ksbanner .badge{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#2f7d4f;background:#e3f3ea;border-radius:100px;padding:3px 11px;display:inline-block;margin-bottom:14px;font-weight:600}
+.ksbanner h3{font-size:1.4rem;color:var(--ink);font-weight:800;margin-bottom:8px;letter-spacing:.01em}
+.ksbanner p{color:var(--text);font-size:.92rem;margin-bottom:14px}
+.ksbanner p b{color:var(--accent)}
+.ksbanner .ks-tech{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-bottom:18px}
+.ksbanner .ks-tech.hi{color:var(--accent);margin-bottom:7px;font-weight:600}   /* 지표 줄 */
+.ksbanner .ks-tech .asof{color:var(--muted);font-weight:400}                   /* (2026.06 기준) */
+.ksbanner .links{display:flex;gap:10px;flex-wrap:wrap}
+.ksbanner .shot{background:#0b0805 center/cover no-repeat;min-height:210px;border-left:1px solid var(--line)}
+
+/* ── 논문 ── */
+.paper{border-left:3px solid var(--line);padding:2px 0 2px 16px;margin-bottom:18px}
+.paper .pt{color:var(--ink);font-size:.98rem;font-weight:600;margin-bottom:3px}
+.paper .pm{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+
+/* ── 학력 · 자격 ── */
+.two{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.rowlist{list-style:none}
+.rowlist li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;
+  border-bottom:1px solid var(--line-2);font-size:.92rem}
+.rowlist li:last-child{border-bottom:none}
+.rowlist .l{color:var(--text)}
+.rowlist .r{font-family:var(--mono);font-size:.76rem;color:var(--muted);text-align:right;flex:none}
+
+/* ── 반응형 · 인쇄 ── */
+@media(max-width:720px){
+  .stack,.projects,.two{grid-template-columns:1fr}
+  .ksbanner{grid-template-columns:1fr}
+  .ksbanner .shot{min-height:150px;border-left:none;border-top:1px solid var(--line)}
+  section.block{padding:40px 0}
+}
+@media print{
+  header.top,.ksbanner{background:#fff}
+  .proj,.grp,.ksbanner{box-shadow:none}
+  section.block{padding:24px 0}
+}
